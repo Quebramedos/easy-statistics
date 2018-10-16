@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Easy Statics</title>
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+  <nav class="green accent-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statics</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Help</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container center">
+      
+      <h2 class="light-blue-text"><i class="medium material-icons">person_add</i></h2>
+
+        <!-- Sessão de Cadastro -->
+        <div class="row">
+          <form class="col s10">
+            <div class="row">
+              <div class="input-field col s5 offset-s5">
+                <input id="first_name" type="text" class="validate">
+                <label for="first_name">Nome</label>
+              </div>
+              <div class="input-field col s5 offset-s5">
+                <input id="last_name" type="text" class="validate">
+                <label for="last_name">Sobrenome</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s5 offset-s5">
+                <input id="password" type="password" class="validate">
+                <label for="password">Senha</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s5 offset-s5">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <a onclick="M.toast({html: 'Usuário cadastrado com sucesso!'})" href="inserir-dados.html" id="download-button" class="btn-large waves-effect waves-light light-blue lighten-1">CADASTRAR</a>
+      
+    </div>
+
+    <br><br>
+
+  </div>
+
+  <footer class="page-footer green accent-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Sobre</h5>
+          <p class="grey-text text-lighten-4">Nós somos um time de estudantes universitários inovando a maneira de
+            computar dados estatíscos, visando praticidade e comodidade ao usuário.</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Cooproduções Equipe de Estatística
+        </div>
+      </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+
+</body>
+
+</html>
