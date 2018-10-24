@@ -7021,6 +7021,12 @@ $jscomp.polyfill = function (e, r, p, m) {
   };
 
   $(document).ready(function () {
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.dropdown-trigger');
+      var instances = M.Dropdown.init(elems, options);
+    });
+
     // Text based inputs
     var input_selector = 'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], input[type=date], input[type=time], textarea';
 

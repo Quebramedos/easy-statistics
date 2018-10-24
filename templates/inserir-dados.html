@@ -13,15 +13,28 @@
 </head>
 
 <body>
+
+
+  <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+
+
   <nav class="green accent-3" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statics</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Help</a></li>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-trigger bnt" id="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
   </nav>
-  
-  <!-- Navegadro da página -->
+
+  <!-- Navegador da página -->
   <nav>
     <div class="nav-wrapper light-blue lighten-1">
       <div class="col s12 container">
@@ -34,27 +47,29 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h3 class="header center light-blue-text text-lighten-1">Como gostaria de inserir os dados?</h3>
+
+      <div class="center container">
+        <div class="section">
+          <!--   Icon Section   -->
+          <div class="icon-block">
+            <h2 class="center"><i class="material-icons">keyboard</i></h2>
+            <h4 class="center light-blue-text text-lighten-1">Inserção de dados</h4>
+            <p class="light">Você pode inserir os dados manualmente ou importar um arquivo(.csv)</p>
+          </div>
+        </div>
+      </div>
+
       <br><br>
       <div class="row center">
         <a href="manualmente.html" id="download-button" class="btn-large waves-effect waves-light light-blue lighten-1">MANUALMENTE</a>
-        <a href="importar.html" id="download-button" class="btn-large waves-effect waves-light light-blue lighten-1"><i class="small material-icons right">file_upload</i>IMPORTAR</a>
+        <a href="importar.html" id="download-button" class="btn-large waves-effect waves-light light-blue lighten-1"><i
+            class="small material-icons right">file_upload</i>IMPORTAR</a>
       </div>
     </div>
   </div>
 
-
-  <div class="center container">
-    <div class="section">
-      <!--   Icon Section   -->
-      <div class="icon-block">
-        <h2 class="center light-blue-text"><i class="material-icons">keyboard</i></h2>
-        <h5 class="center">Inserção de dados</h5>
-        <p class="light">Você pode inserir os dados manualmente ou importar um arquivo(.csv)</p>
-      </div>
-      <br><br>
-    </div>
-  </div>
+  <br><br>
+  <br><br>
 
   <footer class="page-footer green accent-3">
     <div class="container">
@@ -70,18 +85,12 @@
           <h5 class="white-text">Settings</h5>
           <ul>
             <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
           </ul>
         </div>
         <div class="col l3 s12">
           <h5 class="white-text">Connect</h5>
           <ul>
             <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
           </ul>
         </div>
       </div>
