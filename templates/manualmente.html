@@ -20,6 +20,30 @@
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
+<script>
+  /*
+  function oi() {
+    let x = document.getElementById("textarea1").value;
+
+    window.localStorage.setItem('dados_entrada', x);
+    console.log(x);
+
+    window.location.href = "file:///home/vinicius/easy-statics/templates/dados.html";
+  }
+  */
+
+  function botao() {
+    str = document.getElementById("textarea1").value
+    str = str.replace(/,/g, ".")
+    vet100 = str.split(' ').map(Number);
+    console.log(vet100)
+    
+    window.localStorage.setItem('vet100', vet100);
+    window.location.href = "file:///home/vinicius/easy-statics/templates/dados.html";
+    //return vet100
+}
+</script>
+
 <body>
   <nav class="green accent-3" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statics</a>
@@ -48,7 +72,7 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      
+
       <div class="center container">
         <div class="section">
           <!--   Icon Section   -->
@@ -58,8 +82,8 @@
             <p class="light">Você pode inserir manualmente os dados estatíscos separando os por espaço.</p>
           </div>
         </div>
-      </div> 
-    
+      </div>
+
       <br><br>
       <div class="row">
         <form class="col s12">
@@ -71,6 +95,12 @@
           </div>
         </form>
       </div>
+
+      <!-- Botão de confirmação dos dados -->
+      <div class="row center">
+          <a id="download-button" onclick=botao() class="btn-large waves-effect waves-light light-blue lighten-1">CONFIRMAR</a>
+        </div>
+
     </div>
   </div>
   <br><br>

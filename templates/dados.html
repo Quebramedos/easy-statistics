@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Easy Statics</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+
+</head>
+
+<script>
+  vet100 = window.localStorage.getItem("dados_entrada");
+
+</script>
+
+<body>
+
+  <nav class="green accent-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statics</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Help</a></li>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-trigger bnt" id="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Navegador da página -->
+  <nav>
+    <div class="nav-wrapper light-blue lighten-1">
+      <div class="col s12 container">
+        <a href="../index.html" class="breadcrumb">Home</a>
+        <a class="breadcrumb">Entrada de dados</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="row center">
+    <a id="limpa" onclick=limpa(vet100) class="btn-large waves-effect waves-light light-blue lighten-1">LIMPA</a>
+    <a id="limpa" onclick=teste() class="btn-large waves-effect waves-light light-blue lighten-1">TESTA</a>
+  </div>
+
+
+
+  <footer class="page-footer green accent-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Sobre</h5>
+          <p class="grey-text text-lighten-4">Nós somos um time de estudantes universitários inovando a maneira de
+            computar dados estatíscos, visando praticidade e comodidade ao usuário.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Coprodução Equipe de Estatística
+      </div>
+    </div>
+  </footer>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+  <script type="text/javascript" src="../script/validacaoDaTabela.js"> </script>
+  <script type="text/javascript" src="../script/Continua.js"></script>
+  <script type="text/javascript" src="../script/Discreta.js"></script>
+
+</body>
+
+</html>
