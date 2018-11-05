@@ -26,6 +26,7 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+  
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
@@ -33,65 +34,75 @@
       <div class="row center">
         <h5 class="header col s12 light">Facilidade, Praticidade e Simplicidade</h5>
       </div>
+
+      <!-- Vamos Começar -->
       <div class="row center">
-        <a href="templates/inserir-dados.html" id="download-button" class="btn-large waves-effect waves-light light-blue lighten-1">VAMOS
-          COMEÇAR</a>
+        <a class='dropdown-trigger btn-large light-blue lighten-1' href='#' data-target='dropdown1'>Vamos Começar!</a>
+
+        <!-- Opções de redirecionamento -->
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a href="templates/inserir-dados.html">Estatística Descritiva</a></li>
+          <li><a href="#!">Correlação</a></li>
+          <li><a href="#!">Probabilidade</a></li>
+          <li class="divider" tabindex="-1"></li>
+        </ul>
       </div>
       <br><br>
-
     </div>
   </div>
-
 
   <div class="container">
     <div class="section">
 
-      <!--   Icon Section   -->
+      <!--   Sessão de ícones   -->
       <div class="row">
+
+        <!-- Agilize -->
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
             <h5 class="center">Agilize</h5>
-
             <p class="light">Utilizando o Easy Statics você é capaz de realizar análises de dados estatísticos
               rapidamente e sem contratempos.</p>
           </div>
         </div>
 
+        <!-- Usabilidade -->
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
             <h5 class="center">Usabilidade</h5>
-
             <p class="light">Nosso principal objetivo é proporcionar uma experiência agradável, simples e produtiva.</p>
           </div>
         </div>
 
+        <!-- Fácil de usar -->
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
             <h5 class="center">Fácil de usar</h5>
-
             <p class="light">Se você é leigo e não está familiarizado em utilizar sistemas web, não se preocupe! Easy
               Statics é um sistema web fácil e prático para que você possa utilizar nossos recursos sem dificuldades.</p>
           </div>
         </div>
       </div>
-
     </div>
     <br><br>
   </div>
 
+  <!-- Rodapé -->
   <footer class="page-footer green accent-3">
     <div class="container">
       <div class="row">
+
+        <!-- Sobre -->
         <div class="col l6 s12">
           <h5 class="white-text">Sobre</h5>
           <p class="grey-text text-lighten-4">Nós somos uma equipe de estudantes universitários inovando a maneira de
             computar dados estatísticos, visando praticidade e comodidade ao usuário.</p>
-
-
         </div>
+
+        <!-- Settings -->
         <div class="col l3 s12">
           <h5 class="white-text">Settings</h5>
           <ul>
@@ -113,17 +124,22 @@
       </div>
     </div>
     <div class="footer-copyright">
-        <div class="container">
-            Coprodução Equipe de Estatística
-        </div>
+      <div class="container">
+        Coprodução Equipe de Estatística
       </div>
+    </div>
   </footer>
 
 
-  <!--  Scripts-->
+  <!-- Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+
+  <script>
+    // Inicialize a função do botão Dropdown(Vamos Começar!)
+    $('.dropdown-trigger').dropdown();
+  </script>
 
 </body>
 
