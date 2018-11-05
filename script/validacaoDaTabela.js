@@ -1,13 +1,16 @@
 let vetorLimpo = []
-let vet100 = []
+//let vet100 = []
+
 function limpa(vet) {
     for (let i = 0; i < vet.length - 1; ++i) {
         vetorLimpo = vet.filter(function (este, i) {
             return vet.indexOf(este) == i;
         })
     }
+    console.log(vetorLimpo)
     return vetorLimpo
 }
+
 
 function teste() {
     let aux = vetorLimpo.length;
@@ -19,9 +22,6 @@ function teste() {
         f_continua(vet100)
     }
 }
-
-
-
 
 /*
 <body>
@@ -35,3 +35,4 @@ function teste() {
     <hr>
 </body>
 */
+

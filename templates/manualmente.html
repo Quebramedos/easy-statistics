@@ -31,14 +31,15 @@
     window.location.href = "file:///home/vinicius/easy-statics/templates/dados.html";
   }
   */
+  
 
   function botao() {
     str = document.getElementById("textarea1").value
-    str = str.replace(/,/g, ".")
-    vet100 = str.split(' ').map(Number);
-    console.log(vet100)
+    //str = str.replace(/,/g, ".")
+    //vet100 = str.split(' ').map(Number);
+    //console.log(vet100)
     
-    window.localStorage.setItem('vet100', vet100);
+    window.localStorage.setItem("vet100", str);
     window.location.href = "file:///home/vinicius/easy-statics/templates/dados.html";
     //return vet100
 }

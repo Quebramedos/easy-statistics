@@ -11,16 +11,30 @@
   <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
+  <!-- GRAFICO -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+  <script type="text/javascript">
+    // Carrega as funções limpa() e teste() ao iniciar a página
+    window.onload = function () {
+      limpa(vet100);
+      teste();
+    }
+  </script>
 
 </head>
 
 <script>
-  vet100 = window.localStorage.getItem("dados_entrada");
-
+  // Busca os dados na Local Storage no navegador e transforma em vetor
+  vet100 = window.localStorage.getItem("vet100");
+  vet100 = vet100.split(' ').map(Number);
+  console.log(vet100);
 </script>
 
 <body>
-
+  <!-- Navegador da página -->
   <nav class="green accent-3" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statics</a>
       <ul class="right hide-on-med-and-down">
@@ -31,7 +45,7 @@
     </div>
   </nav>
 
-  <!-- Navegador da página -->
+  <!-- Paginação -->
   <nav>
     <div class="nav-wrapper light-blue lighten-1">
       <div class="col s12 container">
@@ -41,14 +55,46 @@
     </div>
   </nav>
 
+  <!-- GRID -->
+  <div class="row">
 
-  <div class="row center">
-    <a id="limpa" onclick=limpa(vet100) class="btn-large waves-effect waves-light light-blue lighten-1">LIMPA</a>
-    <a id="limpa" onclick=teste() class="btn-large waves-effect waves-light light-blue lighten-1">TESTA</a>
+    <!-- Dados principais (moda, média, mediana, desvio padrão etc) -->
+    <div class="col s3">
+
+    </div>
+
+    <div class="col s9">
+      <!-- Abas -->
+      <div class="row ">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s3"><a class="active light-blue-text text-lighten-1" href="#tabela">Tabela</a></li>
+            <li class="tab col s3"><a class="light-blue-text text-lighten-1" href="#test2">Gráfico</a></li>
+            <li class="tab col s3"><a class="light-blue-text text-lighten-1" href="#test4">Probabilidade</a></li>
+          </ul>
+        </div>
+
+        <!-- Tabela -->
+        <div id="tabela" class="col s12">
+          <div id="outTabela"></div>
+          <div id="outResul"></div>
+        </div>
+
+        <!-- Gráfico -->
+        <div id="test2" class="col s12">
+          <div id="container">
+            <canvas id="myChart" style="width:284px;height:120px;"></canvas>
+          </div>
+        </div>
+
+        <!-- Probabilidade -->
+        <div id="test4" class="col s12">Test 4</div>
+      </div>
+    </div>
+
   </div>
 
-
-
+  <!-- Rodapé -->
   <footer class="page-footer green accent-3">
     <div class="container">
       <div class="row">
@@ -56,8 +102,6 @@
           <h5 class="white-text">Sobre</h5>
           <p class="grey-text text-lighten-4">Nós somos um time de estudantes universitários inovando a maneira de
             computar dados estatíscos, visando praticidade e comodidade ao usuário.</p>
-
-
         </div>
         <div class="col l3 s12">
           <h5 class="white-text">Settings</h5>
@@ -80,13 +124,26 @@
     </div>
   </footer>
 
-  <!--  Scripts-->
+  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="../js/materialize.js"></script>
   <script src="../js/init.js"></script>
-  <script type="text/javascript" src="../script/validacaoDaTabela.js"> </script>
+
+  <script type="text/javascript" src="../script/validacaoDaTabela.js"></script>
   <script type="text/javascript" src="../script/Continua.js"></script>
   <script type="text/javascript" src="../script/Discreta.js"></script>
+  <script type="text/javascript" src="../script/graficos.js"></script>
+  
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+    });
+
+    $(document).ready(function () {
+      $('.tabs').tabs();
+    });
+
+  </script>
 
 </body>
 

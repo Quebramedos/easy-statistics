@@ -1,4 +1,5 @@
 let est = 0;
+let grafico2 = []
 
 function estima() {
     var i
@@ -24,13 +25,14 @@ function total(vet100, vetorLimpo) {
         let aux = 0;
         let menor = 0;
 
-        for (let i = 0; i < vet.length - 1; ++i) {
+        for (let i = 0; i < vet.length; ++i) {
             menor = i //primeiro atribui o valor para parametro                           
             for (let j = i + 1; j < vet.length; ++j) { // atribui j = a i mais 1
                 if (vet[menor] > vet[j]) { //compara as posiçoes
                     menor = j //atribui o indice para troca                    
                 }
             }
+
             aux = vet[menor]
             vet[menor] = vet[i] //troca o menor valor
             vet[i] = aux //troca o maior valor
@@ -40,11 +42,13 @@ function total(vet100, vetorLimpo) {
                 return vet.indexOf(este) == i;
             })
             */
+        return vet
     }
 
     //-----------------------------------------------------------
     //chama funçar organizar
     diretasort(vet100)
+    diretasort(vetorLimpo)
 
     //-- clonar objeto
     let obj = {
@@ -58,6 +62,7 @@ function total(vet100, vetorLimpo) {
     }
     let posi = 1
     // atribui o objeto para as copias
+    console.log(vetorLimpo)
     for (let i = 0; i < vetorLimpo.length; ++i) {
         vetor[i] = Object.assign({}, obj);
         vetor[i].variavelPesquisada = vetorLimpo[i]
@@ -198,16 +203,18 @@ function total(vet100, vetorLimpo) {
     let Q = 0
     let k = 0
     let param;
+
     //-------------------------------------------------------------------
     //cria 1 tabela
-    var HTML = "<table align=center class='table table-dark'><tr>";
-    HTML += ('<h3 align = center>TABELA</h3>')
-    HTML += '<td>Variavel Pesquisada(xi)</td><td>Frequencia(fi)</td>'
-    HTML += '<td>Frequencia%(fi%)</td><td>Frequencia Acumulada</td><td>Fac %</td></tr>'
+    var HTML = "<table class='bordered striped centered highlight responsive-table'><thead>";
+    HTML += '<tr><th>Variavel Pesquisada(xi)</th><th>Frequencia(fi)</th>'
+    HTML += '<th>Frequencia%(fi%)</th><th>Frequencia Acumulada</th><th>Fac %</th></tr>'
+    HTML += '</thead><tbody>'
     let totalfac = 0
     for (let linha = 0; linha < vetorLimpo.length; ++linha) {
         //calculos frequencia
         vetor[linha].frequenciaPor = Math.round((vetor[linha].frequencia / vet100.length) * 100)
+        grafico2[linha] = vetor[linha].frequenciaPor
         vetor[linha].facPorcentagem += Math.round((vetor[linha].fac / vet100.length) * 100)
         totalfac = Math.round(vetor[linha].facPorcentagem)
         //atribuiçao
@@ -221,14 +228,14 @@ function total(vet100, vetorLimpo) {
         //coluna fac porcentagem
         HTML += '<td>' + (vetor[linha].facPorcentagem) + '%' + '</td>'
     }
-    HTML += ('<tr><td text="bold">' + 'Total: ' + vetor[vetor.length - 1].somaVariavel + '</td>' + '<td>' + vet100.length +
+    HTML += ('<tr><td>' + 'Total: ' + vetor[vetor.length - 1].somaVariavel + '</td>' + '<td>' + vet100.length +
         '</td>')
     HTML += ('<td>' + totalfac + '%' + '</td>' + '<td>' + vet100.length + '</td><td>' + " " + '</td>')
-    HTML += "</tr></table>"; //fecha tabela
+    HTML += "</tr></tbody></table>"; //fecha tabela
     document.getElementById("outTabela").innerHTML = HTML; //atribui no div
     //-------------------------------------------------------------------------
     //resultados------------------------------------------------------------------
-    var tbl_resul = "<table align=center > <tr>";
+    var tbl_resul = "<table align=center    > <tr>";
     tbl_resul += ('<h3 align = center>RESULTADOS</h3>')
     tbl_resul += ('<table align = center class="tabela">')
     tbl_resul += ('<tr>')
@@ -246,4 +253,6 @@ function total(vet100, vetorLimpo) {
     tbl_resul += ('<td>' + coificiente + '%' + '</td>')
     tbl_resul += ('</tr></table>')
     document.getElementById("outResul").innerHTML = tbl_resul; //atribui no div
+    colunas(vetorLimpo, grafico2)
+
 }
