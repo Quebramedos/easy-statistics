@@ -21,22 +21,20 @@
       height: 700px;
     }
   </style>
-  
-  <script type="text/javascript">
-    // Carrega as funções limpa() e teste() ao iniciar a página
-    window.onload = function () {
-      limpa(vet100);
-      teste();
-    }
-  </script>
 
 </head>
 
-<script>
-  // Busca os dados na Local Storage no navegador e transforma em vetor
+<script type="text/javascript">
   vet100 = window.sessionStorage.getItem("vet100");
-  //vet100 = vet100.split(' ').map(Number);
-  console.log(vet100);
+
+  vet100 = vet100.split(',').map(Number);
+  console.log("VETOR: " + vet100);
+
+  // Carrega as funções limpa() e teste() ao iniciar a página
+  window.onload = function () {
+    limpa(vet100);
+    teste();
+  }
 </script>
 
 <body>

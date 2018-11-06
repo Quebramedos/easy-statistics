@@ -24,7 +24,7 @@
   function botao() {
     str = document.getElementById("textarea1").value
     vet100 = str.split(' ').map(Number);
-  
+    
     window.sessionStorage.setItem("vet100", vet100);
     window.location.href = "dados.html";
   }
