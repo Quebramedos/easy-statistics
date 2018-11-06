@@ -28,7 +28,7 @@
 
 <script>
   // Busca os dados na Local Storage no navegador e transforma em vetor
-  vet100 = window.localStorage.getItem("vet100");
+  vet100 = window.sessionStorage.getItem("vet100");
   vet100 = vet100.split(' ').map(Number);
   console.log(vet100);
 </script>

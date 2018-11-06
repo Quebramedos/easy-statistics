@@ -21,28 +21,12 @@
 </head>
 
 <script>
-  /*
-  function oi() {
-    let x = document.getElementById("textarea1").value;
-
-    window.localStorage.setItem('dados_entrada', x);
-    console.log(x);
-
-    window.location.href = "file:///home/vinicius/easy-statics/templates/dados.html";
-  }
-  */
-  
-
   function botao() {
     str = document.getElementById("textarea1").value
-    //str = str.replace(/,/g, ".")
-    //vet100 = str.split(' ').map(Number);
-    //console.log(vet100)
-    
-    window.localStorage.setItem("vet100", str);
-    window.location.href = "file:///home/vinicius/easy-statics/templates/dados.html";
-    //return vet100
-}
+
+    window.sessionStorage.setItem("vet100", str);
+    window.location.href = "file:///home/vinicius/easy-statics/templates/dados.html";  
+  }
 </script>
 
 <body>
@@ -59,7 +43,7 @@
     </div>
   </nav>
 
-  <!-- Navegadro da página -->
+  <!-- Navegador da página -->
   <nav>
     <div class="nav-wrapper light-blue lighten-1">
       <div class="col s12 container">
@@ -78,14 +62,14 @@
         <div class="section">
           <!--   Icon Section   -->
           <div class="icon-block">
-            <h2 class="center"><i class="material-icons">border_color</i></h2>
+            <h2 class="center light-blue-text"><i class="material-icons">border_color</i></h2>
             <h4 class="center light-blue-text text-lighten-1">Inserção manual</h4>
             <p class="light">Você pode inserir manualmente os dados estatíscos separando os por espaço.</p>
           </div>
         </div>
       </div>
 
-      <br><br>
+      <!-- Entrada de dados (manualmente) -->
       <div class="row">
         <form class="col s12">
           <div class="row">
@@ -99,8 +83,8 @@
 
       <!-- Botão de confirmação dos dados -->
       <div class="row center">
-          <a id="download-button" onclick=botao() class="btn-large waves-effect waves-light light-blue lighten-1">CONFIRMAR</a>
-        </div>
+        <a id="download-button" onclick=botao() class="btn-large waves-effect waves-light light-blue lighten-1">CONFIRMAR</a>
+      </div>
 
     </div>
   </div>
