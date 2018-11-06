@@ -252,7 +252,16 @@ function total(vet100, vetorLimpo) {
     tbl_resul += ('<td>' + desvioPadrao + '</td>')
     tbl_resul += ('<td>' + coificiente + '%' + '</td>')
     tbl_resul += ('</tr></table>')
-    document.getElementById("outResul").innerHTML = tbl_resul; //atribui no div
+    
+    //document.getElementById("outResul").innerHTML = tbl_resul; //atribui no div
     colunas(vetorLimpo, grafico2)
+    
+    document.getElementById("moda").innerHTML = moda;
+    document.getElementById("media").innerHTML = media;
+    document.getElementById("mediana").innerHTML = mediana;
+    document.getElementById("desvio").innerHTML = desvioPadrao;
+    document.getElementById("coificiente").innerHTML = coificiente;
+
+    //return moda, media, mediana, desvioPadrao, coificiente;
 
 }

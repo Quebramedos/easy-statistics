@@ -284,7 +284,6 @@
      somaFi();
      //--------------------------------------------------------------------
      let tbl_tabela = ('<table align=center class="table table-striped table-bordered">')
-     tbl_tabela += ('<h3 align = center>TABELA</h3>')
      tbl_tabela += ('<tr>')
      tbl_tabela += (
          '<th>Classe</th><th>Intervalo de Classe</th><th>Frequencia(fi)</th><th>Frequencia%</th><th>Frequencia Acumulada</th>'
@@ -334,5 +333,14 @@
      tbl_resul += ('<td>' + MoPearson + '</td>')
      tbl_resul += ('</tr>')
      tbl_resul += ('</table>')
-     document.getElementById("outResul").innerHTML = tbl_resul
+     //document.getElementById("outResul").innerHTML = tbl_resul
+
+     document.getElementById("moda").innerHTML = moda;
+     document.getElementById("media").innerHTML = media;
+     document.getElementById("mediana").innerHTML = mediana;
+     document.getElementById("desvio").innerHTML = desvioPadrao;
+     document.getElementById("coificiente").innerHTML = coificiente;
+     document.getElementById("modaKing").innerHTML = MoKing;
+     document.getElementById("modaCuzber").innerHTML = MoCuzber;
+     document.getElementById("modaPearson").innerHTML = MoPearson;
  }

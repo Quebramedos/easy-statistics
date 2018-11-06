@@ -23,14 +23,15 @@
 <script>
   function botao() {
     str = document.getElementById("textarea1").value
-
-    window.sessionStorage.setItem("vet100", str);
-    window.location.href = "file:///home/vinicius/easy-statics/templates/dados.html";  
+    vet100 = str.split(' ').map(Number);
+  
+    window.sessionStorage.setItem("vet100", vet100);
+    window.location.href = "dados.html";
   }
 </script>
 
 <body>
-  <nav class="green accent-3" role="navigation">
+  <nav class="navegador" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statics</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Help</a></li>
@@ -45,19 +46,17 @@
 
   <!-- Navegador da página -->
   <nav>
-    <div class="nav-wrapper light-blue lighten-1">
+    <div class="nav-wrapper green accent-3">
       <div class="col s12 container">
-        <a href="../index.html" class="breadcrumb">Home</a>
-        <a href="inserir-dados.html" class="breadcrumb">Entrada de dados</a>
-        <a class="breadcrumb">Manualmente</a>
+        <a href="../index.html" class="breadcrumb">Início</a>
+        <a href="inserir-dados.html" class="breadcrumb">Opções de entrada</a>
+        <a class="breadcrumb">Entrada de dados</a>
       </div>
     </div>
   </nav>
 
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-      <br><br>
-
       <div class="center container">
         <div class="section">
           <!--   Icon Section   -->
@@ -68,6 +67,23 @@
           </div>
         </div>
       </div>
+
+      <!-- Seleção de amostra ou população -->
+
+      <form action="#">
+        <p>
+          <label>
+            <input class="with-gap" name="group1" type="radio" checked />
+            <span>Amostra</span>
+          </label>
+          <label>
+              <input class="with-gap" name="group1" type="radio" />
+              <span>População</span>
+            </label>
+        </p>
+      </form>
+
+
 
       <!-- Entrada de dados (manualmente) -->
       <div class="row">
@@ -97,27 +113,7 @@
         <div class="col l6 s12">
           <h5 class="white-text">Sobre</h5>
           <p class="grey-text text-lighten-4">Nós somos um time de estudantes universitários inovando a maneira de
-            computar dados estatíscos, visando praticidade e comodidade ao usuário.</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
+            computar dados estatísticos, visando praticidade e comodidade ao usuário.</p>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@
 
   <!-- Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
+
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -16,34 +16,25 @@
 </head>
 
 <body>
-  <nav class="green accent-3" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statics</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Help</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
+  <nav class="navegador" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statics</a></div>
   </nav>
 
   <!-- Navegadro da página -->
   <nav>
-      <div class="nav-wrapper light-blue lighten-1">
-        <div class="col s12 container">
-          <a href="../index.html" class="breadcrumb">Home</a>
-          <a href="inserir-dados.html" class="breadcrumb">Entrada de dados</a>
-          <a class="breadcrumb">Importar</a>
-        </div>
+    <div class="nav-wrapper green accent-3">
+      <div class="col s12 container">
+        <a href="../index.html" class="breadcrumb">Início</a>
+        <a href="inserir-dados.html" class="breadcrumb">Opções de entrada</a>
+        <a class="breadcrumb">Entrada de dados</a>
       </div>
-    </nav>
+    </div>
+  </nav>
 
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-      <br><br>
-      
+
+
       <div class="center container">
         <div class="section">
           <!--   Sessão de ícones   -->
@@ -54,8 +45,23 @@
           </div>
         </div>
       </div>
-      
-      
+
+      <!-- Seleção de amostra ou população -->
+
+      <form action="#">
+        <p>
+          <label>
+            <input class="with-gap" name="group1" type="radio" checked />
+            <span>Amostra</span>
+          </label>
+          <label>
+            <input class="with-gap" name="group1" type="radio" />
+            <span>População</span>
+          </label>
+        </p>
+      </form>
+
+
       <!-- Entrada de dados (importar) onchange="pegaCSV(this) -->
       <form action="#">
         <div class="file-field input-field">
@@ -68,46 +74,28 @@
           </div>
         </div>
       </form>
-      
-      
+
+
       <br><br>
 
       <!-- Botão de confirmação dos dados -->
-      
+      <div class="row center">
+        <a href="dados.html" id="download-button" class="btn-large waves-effect waves-light light-blue lighten-1">Confirmar</a>
+      </div>
 
     </div>
   </div>
 
   <br><br>
   <br><br>
-  
+
   <footer class="page-footer green accent-3">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Sobre</h5>
           <p class="grey-text text-lighten-4">Nós somos um time de estudantes universitários inovando a maneira de
-            computar dados estatíscos, visando praticidade e comodidade ao usuário.</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
+            computar dados estatísticos, visando praticidade e comodidade ao usuário.</p>
         </div>
       </div>
     </div>
@@ -120,7 +108,7 @@
 
 
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="../js/materialize.js"></script>
   <script src="../js/init.js"></script>
   <script src="../script/import.js"></script>
