@@ -63,7 +63,7 @@ function colunas(x, y) {
             data: y,
             showInLegend: false,
             colorByPoint: true,
-            name: '< b >' + 'Porcentagem' + '< /b>',
+            name: '<b>' + 'Porcentagem' + '</b>',
             dataLabels: {
                 enabled: true,
                 format: '{point.y:.1f}%'
@@ -76,48 +76,70 @@ function colunas(x, y) {
     });
 }
 //-----------------------------------------------------------------------------------------
-var ctx = document.getElementById("myChart").getContext("2d");
+
 //grafico continuo
 function graficoContinuo(vet, vet2) {
-    var chartGraph = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: vet2,
-            datasets: [{
-                label: vet,
-                data: vet,
-                backgroundColor: [
-                    'rgba(255, 99,132)',
-                    'rgba(55, 162,235,0.6)',
-                    'rgba(255, 206,86,0.6)',
-                    'rgba(123, 104, 238)',
-                    'rgba(147,112,219)'
-                ]
-            }]
+    // graficoContinuo(grafico, vetorLimpo)
+    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container',
+            type: 'column',
         },
-        options: {
-            scales: {
-                xAxes: [{
-                    display: false,
-                    categoryPercentage: 0.8,
-                    barPercentage: 1.25,
-                }, {
-                    display: true,
-                }],
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    },
-                    categoryPercentage: 0.8,
-                    barPercentage: 1.25,
-                }],
-                gridLines: {
-                    display: false
-                }
+        title: {
+            //Titulo do grafico
+            text: 'Gráfico Quantitativo'
+        },
+        subtitle: {
+            text: "Variáveis continuas"
+        },
+
+        xAxis: {
+            categories: vet,
+            labels: {
+                x: -80,
+                y: 18,
+            },
+            title: {
+                text: 'Intervalo'
+            },
+        },
+        yAxis: {
+            min: 0,
+            width: 1,
+            title: {
+                text: '<b>Porcentagem(%)'
+            },
+            gridLineColor: '#e9e9e9'
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px"><b>{point.key}</span><table>',
+            shared: true,
+            useHTML: true,
+            enable: false,
+            pointFormat: '<span style="color:{point.color}"></span>: <b>{point.y:.2f}%</b> do total<br/>',
+        },
+
+        plotOptions: {
+            column: {
+                groupPadding: 0,
+                pointPadding: 0,
+                borderWidth: 0,
             }
-        }
+        },
+
+        series: [{
+            data: vet2,
+            showInLegend: false,
+            colorByPoint: true,
+            name: '<b>' + 'Porcentagem' + '</b>',
+            dataLabels: {
+                enabled: true,
+                format: '{point.y:.1f}%'
+            }
+        }],
     });
-}
+};
+
 
 
 //grafico pizza

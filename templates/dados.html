@@ -27,8 +27,10 @@
 <script type="text/javascript">
   vet100 = window.sessionStorage.getItem("vet100");
 
-  vet100 = vet100.split(',').map(Number);
+  
+  vet100 = vet100.split(',');
   console.log("VETOR: " + vet100);
+
 
   // Carrega as funções limpa() e teste() ao iniciar a página
   window.onload = function () {
@@ -190,6 +192,7 @@
   <script type="text/javascript" src="../script/Continua.js"></script>
   <script type="text/javascript" src="../script/Discreta.js"></script>
   <script type="text/javascript" src="../script/graficos.js"></script>
+  <script type="text/javascript" src="../script/Qualitativa.js"></script>
 
   <script>
     $(document).ready(function () {

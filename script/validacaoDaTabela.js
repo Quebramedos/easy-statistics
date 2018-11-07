@@ -14,12 +14,17 @@ function limpa(vet) {
 
 function teste() {
     let aux = vetorLimpo.length;
-    if (aux <= 7) {
+    if (isNaN(vetorLimpo[1])) {
+        console.log("Tabela Qualitativa")
+        f_qualitativa(vet100);
+    }
+    else if (aux <= 7) {
         console.log("Tabela Discreta")
-        total(vet100, vetorLimpo)
-    } else {
+        total(vet100, vetorLimpo);
+    }
+    else if (aux > 7) {
         console.log("Tabela Contínua")
-        f_continua(vet100)
+        f_continua(vet100);
     }
 }
 

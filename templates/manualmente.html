@@ -21,10 +21,27 @@
 </head>
 
 <script>
+  /*
   function botao() {
     str = document.getElementById("textarea1").value
     vet100 = str.split(' ').map(Number);
-    
+
+    window.sessionStorage.setItem("vet100", vet100);
+    window.location.href = "dados.html";
+  }
+  */
+
+  function botao() {
+    str = document.getElementById("textarea1").value
+    vet100 = str.split(' ');
+
+    if (isNaN(vet100[1])) {
+      vet100 = vet100.map(String);
+
+    } else {
+      vet100 = vet100.map(Number);
+    }
+    console.log(vet100)
     window.sessionStorage.setItem("vet100", vet100);
     window.location.href = "dados.html";
   }
@@ -77,9 +94,9 @@
             <span>Amostra</span>
           </label>
           <label>
-              <input class="with-gap" name="group1" type="radio" />
-              <span>População</span>
-            </label>
+            <input class="with-gap" name="group1" type="radio" />
+            <span>População</span>
+          </label>
         </p>
       </form>
 
