@@ -27,7 +27,7 @@
 <script type="text/javascript">
   vet100 = window.sessionStorage.getItem("vet100");
 
-  
+
   vet100 = vet100.split(',');
   console.log("VETOR: " + vet100);
 
@@ -43,7 +43,7 @@
   <!-- Navegador da página -->
   <nav class="navegador" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statics</a>
-      
+
     </div>
   </nav>
 
@@ -94,7 +94,6 @@
       <br><br>
       <!-- Quartil -->
       <a class='dropdown-trigger btn' data-target='dropdown1'>Quartil</a>
-
       <!-- Dropdown Structure -->
       <ul id='dropdown1' class='dropdown-content'>
         <li><a href="#!">one</a></li>
@@ -104,10 +103,9 @@
         <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
         <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
       </ul>
-      
+
       <!-- Quintil -->
       <a class='dropdown-trigger1 btn' data-target='dropdown2'>Quintil</a>
-
       <!-- Dropdown Structure -->
       <ul id='dropdown2' class='dropdown-content'>
         <li><a href="#!">one</a></li>
@@ -117,10 +115,9 @@
         <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
         <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
       </ul>
-      
+
       <!-- Decil -->
       <a class='dropdown-trigger2 btn' data-target='dropdown3'>Decil</a>
-
       <!-- Dropdown Structure -->
       <ul id='dropdown3' class='dropdown-content'>
         <li><a href="#!">one</a></li>
@@ -140,26 +137,115 @@
         <div class="col s12">
           <ul class="tabs">
             <li class="tab col s3"><a class="active light-blue-text text-lighten-1" href="#tabela">Tabela</a></li>
-            <li class="tab col s3"><a class="light-blue-text text-lighten-1" href="#test2">Gráfico</a></li>
-            <li class="tab col s3"><a class="light-blue-text text-lighten-1" href="#test4">Probabilidade</a></li>
+            <li class="tab col s3"><a class="light-blue-text text-lighten-1" href="#grafico">Gráfico</a></li>
+            <li class="tab col s3"><a class="light-blue-text text-lighten-1" href="#probabilidade">Probabilidade</a></li>
           </ul>
         </div>
 
         <!-- Tabela -->
         <div id="tabela" class="col s12">
           <div id="outTabela"></div>
-
         </div>
 
         <!-- Gráfico -->
-        <div id="test2" class="col s12">
+        <div id="grafico" class="col s12">
           <div id="container">
             <canvas id="myChart" style="width:284px;height:120px;"></canvas>
           </div>
         </div>
 
         <!-- Probabilidade -->
-        <div id="test4" class="col s12">Test 4</div>
+        <div id="probabilidade" class="col s12">
+          <!-- Abas de  Distribuições -->
+          <div class="col s12">
+            <ul class="tabs">
+              <li class="tab col s3"><a class="active light-blue-text text-lighten-1" href="#dis_binomial">Distribuição
+                  Binomial</a></li>
+              <li class="tab col s3"><a class="light-blue-text text-lighten-1" href="#dis_normal">Distribuição
+                  Normal</a></li>
+              <li class="tab col s3"><a class="light-blue-text text-lighten-1" href="#dis_uniforme">Distribuição
+                  Uniforme</a></li>
+            </ul>
+          </div>
+
+          <!-- Distribuição Binomial -->
+          <!-- Tabela -->
+          <div id="tabela" class="col s12">
+            <form class="formulario-validacao" id="form">
+
+              <div class="row">
+                <div class="input-field col s3">
+                  <input type="text" name="campo" id="Total_N" class="validate">
+                  <label class="active" for="nome">Tamanho(N)</label>
+                </div>
+
+                <div class="input-field col s3">
+                  <input type="text" name="campo" id="Sucesso_S" class="validate">
+                  <label class="active" for="nome">Sucesso(S)</label>
+                </div>
+
+                <div class="input-field col s3">
+                  <input type="text" name="campo" id="Fracasso_F" class="validate">
+                  <label class="active" for="nome">Fracasso(F)</label>
+                </div>
+
+
+
+              </div>
+
+              <div class="input-field col s3">
+                <select id="cbopçoes" onchange="optionCheck()">
+
+
+                  <option value="Ex_igual" disabled selected>EXATAMENTE</option>
+                  <option value="Maior_que">MAIOR Que</option>
+                  <option value="Menor_que">MENOR Que</option>
+                  <option value="Entre">ENTRE</option>
+                  <option value="P_menos">Pelo MENOS</option>
+                  <option value="Ate">ATÉ</option>
+                  <option value="N_Minimo">No MINIMO</option>
+                  <option value="N_Maximo">No MAXIMO</option>
+
+                </select>
+
+
+
+              </div>
+
+              <div class="input-field col s3">
+                <input type="text" name="campo" id="Variavel_K" class="validate">
+                <label class="active" for="nome">Variavel(K)</label>
+              </div>
+
+              <!--
+              <p>
+                <select id="cbopçoes" onchange="optionCheck()">
+                  <option value="Ex_igual">EXATAMENTE</option>
+                  <option value="Maior_que">MAIOR Que</option>
+                  <option value="Menor_que">MENOR Que</option>
+                  <option value="Entre">ENTRE</option>
+                  <option value="P_menos">Pelo MENOS</option>
+                  <option value="Ate">ATÉ</option>
+                  <option value="N_Minimo">No MINIMO</option>
+                  <option value="N_Maximo">No MAXIMO</option>
+                </select>
+  
+                <input type="text" name="campo" id="Variavel_K" />
+                <label for="nome">Variavel(K)</label>
+  
+                <div id="mostrar" style="border:1px;visibility:hidden;">
+                  <input type="text" id="maior" />
+                  <label for="nome">Até(Max)</label>
+                </div>
+              </p>
+              <button type="button" name="submit" value="Enviar" onclick="botao(this.form),casos()" class="css3button">Enviar</button>
+              -->
+            </form>
+
+          </div>
+
+
+        </div>
       </div>
     </div>
 
@@ -171,7 +257,8 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Sobre</h5>
-          <p class="grey-text text-lighten-4">Nós somos um time de estudantes universitários inovando a maneira de
+          <p class="grey-text text-lighten-4">Nós somos um time de estudantes universitários inovando a
+            maneira de
             computar dados estatísticos, visando praticidade e comodidade ao usuário.</p>
         </div>
       </div>
@@ -202,11 +289,16 @@
     $(document).ready(function () {
       $('.tabs').tabs();
     });
-    
+
     // Ativa os botões DROPDOWN
     $('.dropdown-trigger').dropdown();
     $('.dropdown-trigger1').dropdown();
     $('.dropdown-trigger2').dropdown();
+
+    // Ativa o select
+    $(document).ready(function () {
+      $('select').formSelect();
+    });
   </script>
 
 </body>
