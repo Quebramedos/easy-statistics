@@ -156,6 +156,7 @@
 
         <!-- Probabilidade -->
         <div id="probabilidade" class="col s12">
+
           <!-- Abas de  Distribuições -->
           <div class="col s12">
             <br>
@@ -225,6 +226,8 @@
             </form>
 
           </div>
+          
+
           <!-- Distribuição Normal -->
           <div id="dis_normal" class="col s12">
             <p>Normal</p>
@@ -232,45 +235,48 @@
             <form id="form1">
               <!-- Média -->
               <div class="input-field col s3">
-                <input type="text" id="Media" class="validate">
+                <input type="text" id="mediaN" class="validate">
                 <label class="active" for="nome">Digite a média</label>
               </div>
+
               <div class="input-field col s3">
                 <!-- Desvio Padrão -->
-                <input type="text" id="desvioPadrao" class="validate">
+                <input type="text" id="desvioPadraoN" class="validate">
                 <label class="active" for="nome">Digite o desvio padrão</label>
               </div>
+
               <div class="input-field col s3">
                 <!-- Select -->
 
-                <select id="cbopçoes" onchange="optionCheck()">
-                  <option value="Maior_que">MAIOR Que</option>
-                  <option value="Menor_que">MENOR Que</option>
-                  <option value="Ex_igual">EXATAMENTE</option>
-                  <option value="Entre">ENTRE</option>
+                <select id="cbopçoesN" onchange="optionCheckN()">
+                  <option value="Maior_queN">MAIOR Que</option>
+                  <option value="Menor_queN">MENOR Que</option>
+                  <option value="Ex_igualN">EXATAMENTE</option>
+                  <option value="EntreN">ENTRE</option>
                 </select>
               </div>
+
               <div class="input-field col s3">
                 <!-- Variável -->
-                <input type="text" id="Variavel" class="validate">
+                <input type="text" id="variavelN" class="validate">
                 <label class="active" for="nome">Variável</label>
               </div>
+
+
+              <div class="input-field col s3" id="mostrarN" style="border:1px;visibility:hidden;">
+                <label for="nome">Até(Max)</label>
+                <input type="text" id="maiorN" />
+
+              </div>
+
+
+              <button class="css3button" type="button" value="Confirmar" onclick="botaoN(this.form),casosN()">Enviar</button>
+
+
+            </form>
           </div>
 
-          <div class="input-field col s3" id="mostrar" style="border:1px;visibility:hidden;">
-            <label for="nome">Até(Max)</label>
-            <input type="text" id="maior" />
-
-          </div>
-
-          <div id="bot">
-            <button class="css3button" type="button" value="Enviar" onclick="botao(this.form),casos()">
-              Enviar</button>
-          </div>
-
-          </form>
-
-          <div id="resultado">
+          <div id="resultadoN">
             <h2>Resultado:</h2>
           </div>
 
@@ -318,9 +324,10 @@
   <script type="text/javascript" src="../script/graficos.js"></script>
   <script type="text/javascript" src="../script/Qualitativa.js"></script>
   <script type="text/javascript" src="../script/dis_binomial.js"></script>
-  
-  <script type="text/javascript" src="../script/dis_normal.js"></script>
+
+
   <!--
+  <script type="text/javascript" src="../script/dis_normal.js"></script>
   <script type="text/javascript" src="../script/dis_uniforme.js"></script>
   -->
   <script>

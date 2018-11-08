@@ -1,109 +1,109 @@
-let z;
-let media = 0;
-let dp = 0;
-const infinito = 0.5;
-let variavel
-let ate
+let zN;
+let mediaN = 0;
+let dpN = 0;
+const infinitoN = 0.5;
+let variavelN
+let ateN
 //-----------------------------------------------------------
-//função para caixa entre
-function optionCheck() {
-    var option = document.getElementById("cbopçoes").value;
-    if (option == "Entre") {
-        document.getElementById("mostrar").style.visibility = "visible";
+//função para caixa EntreN
+function optionCheckN() {
+    var option = document.getElementById("cbopçoesN").value;
+    if (option == "EntreN") {
+        document.getElementById("mostrarN").style.visibility = "visible";
     } else {
-        document.getElementById("mostrar").style.visibility = "hidden";
+        document.getElementById("mostrarN").style.visibility = "hidden";
     }
 };
 //---------------------------------------------------------------------
-function botao() {
-    media = parseFloat(document.getElementById('Media').value);
-    dp = parseFloat(document.getElementById('desvioPadrao').value)
-    variavel = parseFloat(document.getElementById('Variavel').value)
-    ate = parseFloat(document.getElementById('maior').value)
-    return media, dp, variavel, ate
+function botaoN() {
+    mediaN = parseFloat(document.getElementById('mediaN').value);
+    dpN = parseFloat(document.getElementById('desvioPadraoN').value)
+    variavelN = parseFloat(document.getElementById('variavelN').value)
+    ateN = parseFloat(document.getElementById('maiorN').value)
+    return mediaN, dpN, variavelN, ateN
 }
 
-function distribuicaoNormal(x, media, dp) {
-    z = (x - media) / dp;
-    z = parseFloat(z.toFixed(2));
-    if (z < 0) {
-        z = z * (-1)
+function distribuicaoNormal(x, mediaN, dpN) {
+    zN = (x - mediaN) / dpN;
+    zN = parseFloat(zN.toFixed(2));
+    if (zN < 0) {
+        zN = zN * (-1)
     }
-    return z
+    return zN
 }
-let resposta
-let soma
+let respostaN
+let somaN
 let menos = 'menos'
 let mais = 'mais'
 let rr
-function somar(constante, valor, operaçao) {
+function somarN(constante, valor, operaçao) {
     if (operaçao == 'menos') {
-        soma = (constante - valor) * 100
+        somaN = (constante - valor) * 100
     } else if (operaçao == 'mais') {
-        soma = (constante + valor) * 100
+        somaN = (constante + valor) * 100
     }
-    if (soma < 0) {
-        soma = soma * (-1)
+    if (somaN < 0) {
+        somaN = somaN * (-1)
     }
-    soma = soma.toFixed(2)
-    return soma
+    somaN = somaN.toFixed(2)
+    return somaN
 }
-function casos() {
-    let opçoes = document.getElementById("cbopçoes").value
-    switch (opçoes) {
+function casosN() {
+    let opçoesN = document.getElementById("cbopçoesN").value
+    switch (opçoesN) {
         //------------------------------------------------------------
-        case "Maior_que": //caso maior que
-            distribuicaoNormal(variavel, media, dp) //calcula o o valor de z
-            procurar(z) //procura o valor de z na tabela
-            achar(numero3, numero2, array) // retorna o valor da tabela variavel resul
-            if (variavel > media) {
-                somar(infinito, resul, menos) //chama funçao para subtrair os valores
-            } else if (variavel < media) {
-                somar(infinito, resul, mais) //chama funçao para somar os valores
+        case "maior_queN": //caso maiorN que
+            distribuicaoNormal(variavelN, mediaN, dpN) //calcula o o valor de zN
+            procurar(zN) //procura o valor de zN na tabela
+            achar(numero3, numero2, array) // retorna o valor da tabela variavelN resul
+            if (variavelN > mediaN) {
+                somarN(infinitoN, resul, menos) //chama funçao para subtrair os valores
+            } else if (variavelN < mediaN) {
+                somarN(infinitoN, resul, mais) //chama funçao para somarN os valores
             }
-            resposta = ('<h2>' + 'Resultado:' + soma + '%' + '</h2>') //da o resultado
-            document.getElementById("resultado").innerHTML = resposta
+            respostaN = ('<h2>' + 'Resultado:' + somaN + '%' + '</h2>') //da o resultado
+            document.getElementById("resultadoN").innerHTML = respostaN
             break;
         //-----------------------------------------------------------------------------
-        case "Menor_que": //caso maior que
-            distribuicaoNormal(variavel, media, dp) //calcula o o valor de z
-            procurar(z) //procura o valor de z na tabela
+        case "Menor_queN": //caso maiorN que
+            distribuicaoNormal(variavelN, mediaN, dpN) //calcula o o valor de zN
+            procurar(zN) //procura o valor de zN na tabela
 
-            achar(numero3, numero2, array) // retorna o valor da tabela variavel resul
-            if (variavel > media) {
-                somar(infinito, resul, mais) //chama funçao para subtrair os valores
-            } else if (variavel < media) {
-                somar(infinito, resul, menos) //chama funçao para somar os valores
+            achar(numero3, numero2, array) // retorna o valor da tabela variavelN resul
+            if (variavelN > mediaN) {
+                somarN(infinitoN, resul, mais) //chama funçao para subtrair os valores
+            } else if (variavelN < mediaN) {
+                somarN(infinitoN, resul, menos) //chama funçao para somarN os valores
             }
 
-            resposta = ('<h2>' + 'Resultado:' + soma + '%' + '</h2>') //da o resultado
+            respostaN = ('<h2>' + 'Resultado:' + somaN + '%' + '</h2>') //da o resultado
 
-            document.getElementById("resultado").innerHTML = resposta
+            document.getElementById("resultadoN").innerHTML = respostaN
             break;
-        case "Ex_igual":
-            document.getElementById("resultado").innerHTML = resposta
+        case "Ex_igualN":
+            document.getElementById("resultadoN").innerHTML = respostaN
             break;
-        case "Entre":
-            //calcula o o valor de z
-            //procura o valor de z na tabela
-            // retorna o valor da tabela variavel resul
-            let z1 = distribuicaoNormal(variavel, media, dp)
-            let z2 = distribuicaoNormal(ate, media, dp)
-            procurar(z1)
-            z1 = achar(numero3, numero2, array);
-            procurar(z2)
-            z2 = achar(numero3, numero2, array);
-            if ((variavel < media) && (ate > media)) {
-                somar(z1, z2, mais)
-            } else if ((variavel > media) && (ate > media)) {
-                somar(z2, z1, menos)
-            } else if ((variavel == media) && (ate > media)) {
-                somar(z2, z1, menos)
+        case "EntreN":
+            //calcula o o valor de zN
+            //procura o valor de zN na tabela
+            // retorna o valor da tabela variavelN resul
+            let zN1 = distribuicaoNormal(variavelN, mediaN, dpN)
+            let zN2 = distribuicaoNormal(ateN, mediaN, dpN)
+            procurar(zN1)
+            zN1 = achar(numero3, numero2, array);
+            procurar(zN2)
+            zN2 = achar(numero3, numero2, array);
+            if ((variavelN < mediaN) && (ateN > mediaN)) {
+                somarN(zN1, zN2, mais)
+            } else if ((variavelN > mediaN) && (ateN > mediaN)) {
+                somarN(zN2, zN1, menos)
+            } else if ((variavelN == mediaN) && (ateN > mediaN)) {
+                somarN(zN2, zN1, menos)
             } else {
-                somar(z2, z1, menos)
+                somarN(zN2, zN1, menos)
             }
-            resposta = ('<h2>' + 'Resultado:' + soma + '%' + '</h2>') //da o resultado
-            document.getElementById("resultado").innerHTML = resposta
+            respostaN = ('<h2>' + 'Resultado:' + somaN + '%' + '</h2>') //da o resultado
+            document.getElementById("resultadoN").innerHTML = respostaN
         default:
     }
 }
@@ -113,28 +113,28 @@ function casos() {
     <form id="form1">
       <h2 align="center">Digite os dados:</h2>
       <label>Digite a média:</label>
-      <input type="text" class='media' id='Media'>
+      <input type="text" class='mediaN' id='mediaN'>
       <br>
       <br>
       <label>Digite o desvio padrão:</label>
-      <input type="text" class="dPadrao" id='desvioPadrao'>
+      <input type="text" class="dpNadrao" id='desvioPadraoN'>
       <br>
       <p>
 
         <label for="text">Probabilidade:</label>
         <select id="cbopçoes" onchange="optionCheck()">
-          <option value="Maior_que">MAIOR Que</option>
-          <option value="Menor_que">MENOR Que</option>
-          <option value="Ex_igual">EXATAMENTE</option>
-          <option value="Entre">ENTRE</option>
+          <option value="maiorN_queN">maiorN Que</option>
+          <option value="Menor_queN">MENOR Que</option>
+          <option value="Ex_igualN">EXATAMENTE</option>
+          <option value="EntreN">EntreN</option>
         </select>
 
-        <input type="text" name="campo" id="Variavel" />
+        <input type="text" name="campo" id="variavelN" />
         <label for="nome"></label>
 
-        <div id="mostrar" style="border:1px;visibility:hidden;">
+        <div id="mostrarN" style="border:1px;visibility:hidden;">
           <label for="nome">Até(Max)</label>
-          <input type="text" id="maior" />
+          <input type="text" id="maiorN" />
 
         </div>
       </p>
