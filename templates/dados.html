@@ -158,6 +158,7 @@
         <div id="probabilidade" class="col s12">
           <!-- Abas de  Distribuições -->
           <div class="col s12">
+            <br>
             <ul class="tabs">
               <li class="tab col s3"><a class="active light-blue-text text-lighten-1" href="#dis_binomial">Distribuição
                   Binomial</a></li>
@@ -169,8 +170,8 @@
           </div>
 
           <!-- Distribuição Binomial -->
-          <!-- Tabela -->
-          <div id="tabela" class="col s12">
+          <div id="dis_binomial" class="col s12">
+            <br><br>
             <form class="formulario-validacao" id="form">
 
               <div class="row">
@@ -189,15 +190,13 @@
                   <label class="active" for="nome">Fracasso(F)</label>
                 </div>
 
-
-
               </div>
 
               <div class="input-field col s3">
                 <select id="cbopçoes" onchange="optionCheck()">
 
 
-                  <option value="Ex_igual" disabled selected>EXATAMENTE</option>
+                  <option value="Ex_igual" selected>EXATAMENTE</option>
                   <option value="Maior_que">MAIOR Que</option>
                   <option value="Menor_que">MENOR Que</option>
                   <option value="Entre">ENTRE</option>
@@ -205,11 +204,7 @@
                   <option value="Ate">ATÉ</option>
                   <option value="N_Minimo">No MINIMO</option>
                   <option value="N_Maximo">No MAXIMO</option>
-
                 </select>
-
-
-
               </div>
 
               <div class="input-field col s3">
@@ -217,37 +212,79 @@
                 <label class="active" for="nome">Variavel(K)</label>
               </div>
 
-              <!--
-              <p>
-                <select id="cbopçoes" onchange="optionCheck()">
-                  <option value="Ex_igual">EXATAMENTE</option>
-                  <option value="Maior_que">MAIOR Que</option>
-                  <option value="Menor_que">MENOR Que</option>
-                  <option value="Entre">ENTRE</option>
-                  <option value="P_menos">Pelo MENOS</option>
-                  <option value="Ate">ATÉ</option>
-                  <option value="N_Minimo">No MINIMO</option>
-                  <option value="N_Maximo">No MAXIMO</option>
-                </select>
-  
-                <input type="text" name="campo" id="Variavel_K" />
-                <label for="nome">Variavel(K)</label>
-  
-                <div id="mostrar" style="border:1px;visibility:hidden;">
-                  <input type="text" id="maior" />
-                  <label for="nome">Até(Max)</label>
-                </div>
-              </p>
+              <div id="mostrar" style="border:1px;visibility:hidden;">
+                <input type="text" id="maior">
+                <label for="nome">Até(Max)</label>
+              </div>
+
               <button type="button" name="submit" value="Enviar" onclick="botao(this.form),casos()" class="css3button">Enviar</button>
-              -->
+
+              <div id="resultado">
+                <h2>Resultado:</h2>
+              </div>
             </form>
 
           </div>
+          <!-- Distribuição Normal -->
+          <div id="dis_normal" class="col s12">
+            <p>Normal</p>
 
+            <form id="form1">
+              <!-- Média -->
+              <div class="input-field col s3">
+                <input type="text" id="Media" class="validate">
+                <label class="active" for="nome">Digite a média</label>
+              </div>
+              <div class="input-field col s3">
+                <!-- Desvio Padrão -->
+                <input type="text" id="desvioPadrao" class="validate">
+                <label class="active" for="nome">Digite o desvio padrão</label>
+              </div>
+              <div class="input-field col s3">
+                <!-- Select -->
+
+                <select id="cbopçoes" onchange="optionCheck()">
+                  <option value="Maior_que">MAIOR Que</option>
+                  <option value="Menor_que">MENOR Que</option>
+                  <option value="Ex_igual">EXATAMENTE</option>
+                  <option value="Entre">ENTRE</option>
+                </select>
+              </div>
+              <div class="input-field col s3">
+                <!-- Variável -->
+                <input type="text" id="Variavel" class="validate">
+                <label class="active" for="nome">Variável</label>
+              </div>
+          </div>
+
+          <div class="input-field col s3" id="mostrar" style="border:1px;visibility:hidden;">
+            <label for="nome">Até(Max)</label>
+            <input type="text" id="maior" />
+
+          </div>
+
+          <div id="bot">
+            <button class="css3button" type="button" value="Enviar" onclick="botao(this.form),casos()">
+              Enviar</button>
+          </div>
+
+          </form>
+
+          <div id="resultado">
+            <h2>Resultado:</h2>
+          </div>
 
         </div>
+
+        <!-- Distribuição Uniforme -->
+        <div id="dis_uniforme" class="col s12">
+          <p>Uniforme</p>
+        </div>
+
+
       </div>
     </div>
+  </div>
 
   </div>
 
@@ -280,7 +317,12 @@
   <script type="text/javascript" src="../script/Discreta.js"></script>
   <script type="text/javascript" src="../script/graficos.js"></script>
   <script type="text/javascript" src="../script/Qualitativa.js"></script>
-
+  <script type="text/javascript" src="../script/dis_binomial.js"></script>
+  
+  <script type="text/javascript" src="../script/dis_normal.js"></script>
+  <!--
+  <script type="text/javascript" src="../script/dis_uniforme.js"></script>
+  -->
   <script>
     $(document).ready(function () {
       $('.sidenav').sidenav();
