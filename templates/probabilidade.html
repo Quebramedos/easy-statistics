@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Easy Statics</title>
+  <!-- Slider -->
+  <link href="../noUiSlider-12.0.0/distribute/nouislider.min.css" rel="stylesheet">
+
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+  <nav class="navegador" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statics</a>
+    </div>
+  </nav>
+
+  <!-- Navegador da página -->
+  <nav>
+    <div class="nav-wrapper green accent-3">
+      <div class="col s12 container">
+        <a href="../index.html" class="breadcrumb">Início</a>
+        <a class="breadcrumb">Probabilidade</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <div class="center container">
+        <h4 class="center light-blue-text text-lighten-1">Probabilidade</h4>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s3"><a class="active light-blue-text text-lighten-1" href="#dis_binomial">Distribuição
+                Binomial</a></li>
+            <li class="tab col s3"><a class="light-blue-text text-lighten-1" href="#dis_normal">Distribuição
+                Normal</a></li>
+            <li class="tab col s3"><a class="light-blue-text text-lighten-1" href="#dis_uniforme">Distribuição
+                Uniforme</a></li>
+          </ul>
+        </div>
+
+        <div class="row">
+          <!-- Distribuição Binomial -->
+          <div id="dis_binomial" class="col s12">
+            <br><br>
+            <form class="formulario-validacao" id="form">
+
+              <div class="row">
+                <div class="input-field col s3">
+                  <input type="text" name="campo" id="totalBino_N" class="validate">
+                  <label class="active" for="nome">Tamanho(N)</label>
+                </div>
+
+                <div class="input-field col s3">
+                  <input type="text" name="campo" id="Sucesso_S" class="validate">
+                  <label class="active" for="nome">Sucesso(S)</label>
+                </div>
+
+                <div class="input-field col s3">
+                  <input type="text" name="campo" id="Fracasso_F" class="validate">
+                  <label class="active" for="nome">Fracasso(F)</label>
+                </div>
+
+              </div>
+
+              <div class="input-field col s3">
+                <select id="cbopçoes" onchange="optionCheck()">
+                  <option value="Ex_igual" selected>EXATAMENTE</option>
+                  <option value="Maior_que">MAIOR Que</option>
+                  <option value="Menor_que">MENOR Que</option>
+                  <option value="Entre">ENTRE</option>
+                  <option value="P_menos">Pelo MENOS</option>
+                  <option value="Ate">ATÉ</option>
+                  <option value="N_Minimo">No MINIMO</option>
+                  <option value="N_Maximo">No MAXIMO</option>
+                </select>
+              </div>
+
+              <div class="input-field col s3">
+                <input type="text" name="campo" id="Variavel_K" class="validate">
+                <label class="active" for="nome">Variavel(K)</label>
+              </div>
+
+              <div id="mostrar" style="border:1px;visibility:hidden;">
+                <input type="text" id="maior">
+                <label for="nome">Até(Max)</label>
+              </div>
+
+              <button type="button" name="submit" value="Enviar" onclick="disBinomial(this.form),casos()" class="css3button">Enviar</button>
+
+              <div id="resultado">
+                <h2>Resultado:</h2>
+              </div>
+            </form>
+
+          </div>
+
+          <!-- Distribuição Normal -->
+          <div id="dis_normal" class="col s12">
+            <p>Normal</p>
+
+            <form id="form1">
+              <!-- Média -->
+              <div class="input-field col s3">
+                <input type="text" id="media" class="validate">
+                <label class="active" for="nome">Digite a média</label>
+              </div>
+
+              <div class="input-field col s3">
+                <!-- Desvio Padrão -->
+                <input type="text" id="desvioPadrao" class="validate">
+                <label class="active" for="nome">Digite o desvio padrão</label>
+              </div>
+
+              <div class="input-field col s3">
+                <!-- Select -->
+
+                <select id="cbopçoes" onchange="optionCheck()">
+                  <option value="Maior_que">MAIOR Que</option>
+                  <option value="Menor_que">MENOR Que</option>
+                  <option value="Ex_igual">EXATAMENTE</option>
+                  <option value="Entre">ENTRE</option>
+                </select>
+              </div>
+
+              <div class="input-field col s3">
+                <!-- Variável -->
+                <input type="text" id="variavel" class="validate">
+                <label class="active" for="nome">Variável</label>
+              </div>
+
+
+              <div class="input-field col s3" id="mostrar" style="border:1px;visibility:hidden;">
+                <label for="nome">Até(Max)</label>
+                <input type="text" id="maior" />
+
+              </div>
+
+
+              <button class="css3button" type="button" value="Confirmar" onclick="botao(this.form),casos()">Enviar</button>
+
+
+            </form>
+            
+          </div>
+
+          <div id="resultado">
+            <h2>Resultado:</h2>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  </div>
+  <br>
+
+  <br>
+
+  <footer class="page-footer green accent-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Sobre</h5>
+          <p class="grey-text text-lighten-4">Nós somos um time de estudantes universitários inovando a maneira de
+            computar dados estatísticos, visando praticidade e comodidade ao usuário.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Coprodução Equipe de Estatística
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+
+  <!-- Script Distribuição Binomial -->
+  <script type="text/javascript" src="../script/dis_binomial.js"></script>
+  
+  <!-- Script Distribuição Normal -->
+  <script type="text/javascript" src="../script/dis_normal.js"></script>
+
+  <!-- Slider -->
+  <script src="../noUiSlider-12.0.0/distribute/nouislider.js"></script>
+
+  <script type="text/javascript">
+    // Ativa as TABS
+    $(document).ready(function () {
+      $('.tabs').tabs();
+    });
+
+    // Ativa o select
+    $(document).ready(function () {
+      $('select').formSelect();
+    });
+
+  </script>
+
+</body>
+
+</html>

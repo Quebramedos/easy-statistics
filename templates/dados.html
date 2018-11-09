@@ -225,6 +225,8 @@
               </div>
             </form>
 
+            <script type="text/javascript" src="../script/dis_binomial.js"></script>
+
           </div>
           
 
@@ -235,48 +237,49 @@
             <form id="form1">
               <!-- Média -->
               <div class="input-field col s3">
-                <input type="text" id="mediaN" class="validate">
+                <input type="text" id="media" class="validate">
                 <label class="active" for="nome">Digite a média</label>
               </div>
 
               <div class="input-field col s3">
                 <!-- Desvio Padrão -->
-                <input type="text" id="desvioPadraoN" class="validate">
+                <input type="text" id="desvioPadrao" class="validate">
                 <label class="active" for="nome">Digite o desvio padrão</label>
               </div>
 
               <div class="input-field col s3">
                 <!-- Select -->
 
-                <select id="cbopçoesN" onchange="optionCheckN()">
-                  <option value="Maior_queN">MAIOR Que</option>
-                  <option value="Menor_queN">MENOR Que</option>
-                  <option value="Ex_igualN">EXATAMENTE</option>
-                  <option value="EntreN">ENTRE</option>
+                <select id="cbopçoes" onchange="optionCheck()">
+                  <option value="Maior_que">MAIOR Que</option>
+                  <option value="Menor_que">MENOR Que</option>
+                  <option value="Ex_igual">EXATAMENTE</option>
+                  <option value="Entre">ENTRE</option>
                 </select>
               </div>
 
               <div class="input-field col s3">
                 <!-- Variável -->
-                <input type="text" id="variavelN" class="validate">
+                <input type="text" id="variavel" class="validate">
                 <label class="active" for="nome">Variável</label>
               </div>
 
 
-              <div class="input-field col s3" id="mostrarN" style="border:1px;visibility:hidden;">
+              <div class="input-field col s3" id="mostrar" style="border:1px;visibility:hidden;">
                 <label for="nome">Até(Max)</label>
-                <input type="text" id="maiorN" />
+                <input type="text" id="maior" />
 
               </div>
 
 
-              <button class="css3button" type="button" value="Confirmar" onclick="botaoN(this.form),casosN()">Enviar</button>
+              <button class="css3button" type="button" value="Confirmar" onclick="botao(this.form),casos()">Enviar</button>
 
 
             </form>
+            <script type="text/javascript" src="../script/dis_normal.js"></script>
           </div>
 
-          <div id="resultadoN">
+          <div id="resultado">
             <h2>Resultado:</h2>
           </div>
 
@@ -323,11 +326,11 @@
   <script type="text/javascript" src="../script/Discreta.js"></script>
   <script type="text/javascript" src="../script/graficos.js"></script>
   <script type="text/javascript" src="../script/Qualitativa.js"></script>
-  <script type="text/javascript" src="../script/dis_binomial.js"></script>
+  
 
 
   <!--
-  <script type="text/javascript" src="../script/dis_normal.js"></script>
+  
   <script type="text/javascript" src="../script/dis_uniforme.js"></script>
   -->
   <script>

@@ -5,25 +5,30 @@ let n = 0
 let k = 0
 let result = 0
 let vet = []
+
 function converter(a, b) {
     a = a / 100
     b = b / 100
     return a, b
 }
-function botao(form) {
 
-    n = parseInt(document.getElementById("Total_N").value)
+function disBinomial() {
+
+    n = parseInt(document.getElementById("totalBino_N").value)
     sucesso = parseFloat(document.getElementById("Sucesso_S").value)
     fracasso = parseFloat(document.getElementById("Fracasso_F").value)
     k = parseInt(document.getElementById("Variavel_K").value)
     converter(sucesso, fracasso)
-    for (let i = 0; i < n; i++) { vet.push(i) }
+    for (let i = 0; i < n; i++) {
+        vet.push(i)
+    }
 }
 // função binomial
 let p //parametro sucesso
-let q;//parametro fracasso
+let q; //parametro fracasso
 let PK = 0
-function binomial(x, y) {//x pra n        Y pra k
+
+function binomial(x, y) { //x pra n        Y pra k
     p = sucesso / (sucesso + fracasso);
     q = fracasso / (sucesso + fracasso);
     result = fatorial(x) / (fatorial(y) * (fatorial(x - y))) //fatorial 
@@ -42,17 +47,10 @@ function fatorial(num) {
 }
 //-----------------------------------------------------------
 //função para caixa entre
-function optionCheck() {
-    var option = document.getElementById("cbopçoes").value;
-    if (option == "Entre") {
-        document.getElementById("mostrar").style.visibility = "visible";
-    } else {
-        document.getElementById("mostrar").style.visibility = "hidden";
-    }
-}
 // função para soma de todos os valores
 let soma = 0
-function total(P_menor, P_maior) {
+
+function totalBino(P_menor, P_maior) {
     soma = 0
     for (let i = P_menor; i <= P_maior; ++i) {
         binomial(n, i)
@@ -61,61 +59,62 @@ function total(P_menor, P_maior) {
 }
 //--------------------------------------------------------------
 let resposta
+
 function casos() {
     let opçoes = document.getElementById("cbopçoes").value
     switch (opçoes) {
         case "Ex_igual":
-            binomial(n, k)//passa o parametro normal
+            binomial(n, k) //passa o parametro normal
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 PK.toFixed(2) + '%' + '</h2>')
             document.getElementById("resultado").innerHTML = resposta
             break;
-        //------------------------------------------------------------
-        case "Maior_que"://caso maior que
-            total(k + 1, n)//nesse caso vai de k +1 ate o final
+            //------------------------------------------------------------
+        case "Maior_que": //caso maior que
+            totalBino(k + 1, n) //nesse caso vai de k +1 ate o final
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
             //saida
             document.getElementById("resultado").innerHTML = resposta
             break;
-        //-----------------------------------------------------------------
+            //-----------------------------------------------------------------
         case "Menor_que":
-            total(0, k - 1)//passa o parametro 0 como inicial ate k -1
+            totalBino(0, k - 1) //passa o parametro 0 como inicial ate k -1
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
             document.getElementById("resultado").innerHTML = resposta
             break;
-        //-------------------------------------------------------------------
+            //-------------------------------------------------------------------
         case "P_menos":
-            total(k, n)//passa o parametro k como inicial, ate n
+            totalBino(k, n) //passa o parametro k como inicial, ate n
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
             document.getElementById("resultado").innerHTML = resposta
-        //-----------------------------------------------------------------------
+            //-----------------------------------------------------------------------
         case "Ate":
-            total(0, k)//passa o parametro 0 como inicial ate k
+            totalBino(0, k) //passa o parametro 0 como inicial ate k
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
             document.getElementById("resultado").innerHTML = resposta
             break;
-        //-----------------------------------------------------------------------
+            //-----------------------------------------------------------------------
         case "N_Minimo":
-            total(k, n)//passa o parametro 0 como inicial ate k
+            totalBino(k, n) //passa o parametro 0 como inicial ate k
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
             document.getElementById("resultado").innerHTML = resposta
             break;
-        //-------------------------------------------------------------------------
+            //-------------------------------------------------------------------------
         case "N_Maximo":
-            total(0, k)//passa o parametro 0 como inicial ate k
+            totalBino(0, k) //passa o parametro 0 como inicial ate k
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
             document.getElementById("resultado").innerHTML = resposta
             break;
-        //----------------------------------------------------------------------------
+            //----------------------------------------------------------------------------
         case "Entre":
             let maximo = document.getElementById("maior").value
-            total(k, maximo)//passa o parametro 0 como inicial ate k
+            totalBino(k, maximo) //passa o parametro 0 como inicial ate k
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
             document.getElementById("resultado").innerHTML = resposta
@@ -132,7 +131,7 @@ function casos() {
             <h2>Digite os Dados:</h2>
             <form class="formulario-validacao" id="form">
                 <p>
-                    <input type="text" name="campo" id="Total_N" />
+                    <input type="text" name="campo" id="totalBino_N" />
                     <label for="nome">Tamanho(N)</label>
                 </p>
                 <p>
