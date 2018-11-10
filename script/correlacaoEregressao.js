@@ -1,7 +1,7 @@
 //Variaveis
-let Xindependente = sessionStorage.getItem('vet100x');
+let Xindependente = parseFloat(sessionStorage.getItem('vet100x'));
 console.log(Xindependente)
-let Ydependente = sessionStorage.getItem('vet200');
+let Ydependente = parseFloat(sessionStorage.getItem('vet200'));
 let teste = []
 
 //Função somatoria
