@@ -1,21 +1,8 @@
  //vetor continua
-
  let str = ''
 
-
-
- function estima() {
-     var i
-     for (i = 0; i < document.estimacao.quan.length; i++) {
-         if (document.estimacao.quan[i].checked) {
-             break;
-         }
-     }
-     return est = document.estimacao.quan[i].value
- }
-
  function f_continua(vet100) {
-     let vetorLimpo = []
+     let vetorGrafico = []
      let cont = 0
      let vetor = []
      //variaveis para intevalo
@@ -45,6 +32,7 @@
      //-----------------------------------------------------------
      //chama funçar organizar
      diretasort(vet100)
+     diretasort(vetorLimpo)
      //--formula para continua----------------------------------------------
      let at = 0
      let ic = 0
@@ -90,7 +78,7 @@
          total.push(aux4 += ic) //atribui o limito maximo
          vetor[i].limMaximo = total[i] //atribui o valor para o limite maximo
          vetor[i].limMinimo = vetor[i].limMaximo - ic // atribui o valor para o limite minimo
-         vetorLimpo[i] = vetor[i].limMaximo //atribui para parametro
+         vetorGrafico[i] = vetor[i].limMaximo //atribui para parametro
          vetor[i].PontoMedio = (vetor[i].limMinimo + vetor[i].limMaximo) / 2 // ponto medio da classe
      }; // { a: 1 }
      vetor.push(obj)
@@ -115,7 +103,7 @@
      function fac() {
          vet3[0] = vetor[0].frequencia
          aux = vetor[0].frequencia
-         for (var x = 0; x < vetorLimpo.length; x++) {
+         for (var x = 0; x < vetorGrafico.length; x++) {
              aux += vetor[x + 1].frequencia;
              vet3[x + 1] = aux
              vetor[x].fac = vet3[x]
@@ -188,7 +176,7 @@
      console.log(MoCuzber);
      console.log(moda)
      console.log(fiAnterior)
-     console.log(fiPosterior)
+
 
      let MoPearson = 0;
 
@@ -276,17 +264,17 @@
          for (let i = 0; i < vetor.length; i++) {
              somatoriaFi += vetor[i].frequencia
          }
+         window.sessionStorage.setItem("Somafi", somatoriaFi)
          return somatoriaFi
      }
      //Medidas separatrizes
-     let Q = 0
-     let param;
      somaFi();
+     let facP = []
      //--------------------------------------------------------------------
-     let tbl_tabela = ('<table align=center class="table table-striped table-bordered">')
+     let tbl_tabela = ('<table class="bordered striped centered highlight responsive-table">')
      tbl_tabela += ('<tr>')
      tbl_tabela += (
-         '<th>Classe</th><th>Intervalo de Classe</th><th>Frequencia(fi)</th><th>Frequencia%</th><th>Frequencia Acumulada</th>'
+         '<th>Classe</th><th>Intervalo de Classe</th><th>Frequencia(fi)</th><th>Frequencia%</th><th>F. Acumulada</th><th>Fac(%)'
      )
      tbl_tabela += ('</tr>')
      let contClasses = 1
@@ -301,11 +289,14 @@
          tbl_tabela += ('<td>' + vetor[linha].frequencia + '</td>')
          //quarta coluna
          tbl_tabela += ('<td>' + Math.round((vetor[linha].frequencia / vet100.length) * 100) + '%' + '</td>')
-         //
-         vetor[linha].frequenciaPor = Math.round((vetor[linha].frequencia / vet100.length) * 100) + '%'
-         //quarta coluna
+         //enche o grafico
+         vetor[linha].frequenciaPor = Math.round((vetor[linha].frequencia / vet100.length) * 100)
+         grafico2[linha] = vetor[linha].frequenciaPor
+         facP[linha] = vetor[linha].frequenciaPor + '%'
+         //quinta coluna
          tbl_tabela += ('<td>' + parseInt((vetor[linha].fac)) + '</td>')
-         //quarta coluna
+         //sexta coluna
+         tbl_tabela += ('<td>' + Math.round((vetor[linha].fac / vet100.length) * 100) + '%' + '</td>')
          tbl_tabela += ('</tr>')
          contClasses++
      }
@@ -336,11 +327,16 @@
      //document.getElementById("outResul").innerHTML = tbl_resul
 
      document.getElementById("moda").innerHTML = moda;
-     document.getElementById("media").innerHTML = media;
+     document.getElementById("media").innerHTML = media.toFixed(2);
      document.getElementById("mediana").innerHTML = mediana;
-     document.getElementById("desvio").innerHTML = desvioPadrao;
+     document.getElementById("desvio").innerHTML = desvioPadrao.toFixed(2);
      document.getElementById("coificiente").innerHTML = coificiente;
      document.getElementById("modaKing").innerHTML = MoKing;
      document.getElementById("modaCuzber").innerHTML = MoCuzber;
      document.getElementById("modaPearson").innerHTML = MoPearson;
+
+     vetorGrafico.unshift(vet100[0])
+     grafico2.push('')
+     graficoContinuo(vetorGrafico, grafico2)
+
  }

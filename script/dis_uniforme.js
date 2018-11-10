@@ -2,20 +2,12 @@ let min
 let max
 let media
 let desvio
-let resul
+let resultado
 let parametro
 let diff
 let ate
 //-----------------------------------------------------------
-//função para caixa entre
-function optionCheck() {
-    var option = document.getElementById("cbopçoes").value;
-    if (option == "Entre") {
-        document.getElementById("mostrar").style.visibility = "visible";
-    } else {
-        document.getElementById("mostrar").style.visibility = "hidden";
-    }
-}
+
 function padrao(a, b) {
     desvio = Math.pow(b - a, 2)
     desvio = desvio / 12
@@ -34,41 +26,44 @@ function uniforme() {
     padrao(min, max)
     return min, max
 }
+
 function diferença(maxi, mini) {
     diff = maxi - mini
     return diff
 }
+
 function probabilidade(x, y, dif) {
-    resul = (1 / (y - x)) * dif // formula probabilidade
-    resul = resul * 100
-    console.log(resul)
-    return resul
+    resultado = (1 / (y - x)) * dif // formula probabilidade
+    resultado = resultado * 100
+    console.log(resultado)
+    return resultado
 }
-let resposta
-function casos() {
-    let opçoes = document.getElementById("cbopçoes").value
+let respostaU
+
+function casosU() {
+    let opçoes = document.getElementById("cbopçoesU").value
     switch (opçoes) {
         case "maior_Q":
             diferença(max, parametro) // valor maximo - o parametro
             probabilidade(min, max, diff) //chama funçao para calculo
-            resposta = ('<h2>' + 'Resultado:' + '<br>' +
-                resul.toFixed(2) + '%' + '</h2>')
-            document.getElementById("resultado").innerHTML = resposta //joga resposta no documento
+            respostaU = ('<h2>' + 'resultado:' + '<br>' +
+                resultado.toFixed(2) + '%' + '</h2>')
+            document.getElementById("resultadoU").innerHTML = respostaU //joga respostaU no documento
             break;
         case "menor_Q":
             diferença(parametro, min) // vai pégar o valor da diferença
             probabilidade(min, max, diff) //chama funçao para calculo
-            resposta = ('<h2>' + 'Resultado:' + '<br>' +
-                resul.toFixed(2) + '%' + '</h2>')
-            document.getElementById("resultado").innerHTML = resposta
+            respostaU = ('<h2>' + 'resultadotado:' + '<br>' +
+                resultado.toFixed(2) + '%' + '</h2>')
+            document.getElementById("resultadotadoU").innerHTML = respostaU
             break;
-        //--------------------------------------------------------------------------
+            //--------------------------------------------------------------------------
         case "Entre":
             diferença(ate, parametro) // vai pégar o valor da diferença
             probabilidade(min, max, diff) //chama funçao para calculo
-            resposta = ('<h2>' + 'Resultado:' + '<br>' +
-                resul.toFixed(2) + '%' + '</h2>')
-            document.getElementById("resultado").innerHTML = resposta
+            respostaU = ('<h2>' + 'resultadotado:' + '<br>' +
+                resultado.toFixed(2) + '%' + '</h2>')
+            document.getElementById("resultadotado").innerHTML = respostaU
             break;
         default:
     }
@@ -100,7 +95,7 @@ function casos() {
     <button id="botao" onclick="uniforme(), casos()">Enviar</button>
     <!-- <input type="range" min='100' max='2000'>-->
 
-    <div id="resultado"></div>
+    <div id="resultadotado"></div>
 </body>
 
  */

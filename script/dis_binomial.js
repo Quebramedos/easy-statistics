@@ -113,7 +113,7 @@ function casos() {
             break;
             //----------------------------------------------------------------------------
         case "Entre":
-            let maximo = document.getElementById("maior").value
+            let maximo = document.getElementById("Ate").value
             totalBino(k, maximo) //passa o parametro 0 como inicial ate k
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')

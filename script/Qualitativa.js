@@ -150,4 +150,5 @@ function f_qualitativa(vet100) {
 
     document.getElementById("moda").innerHTML = moda;
     document.getElementById("mediana").innerHTML = mediana;
+    pizza(grafico2, vetorLimpo)
 }

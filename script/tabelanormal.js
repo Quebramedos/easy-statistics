@@ -1,4 +1,4 @@
-    let vetor = []
+    let matriz = []
     let objColuna = {
         Linha: '',
         Numero: '',
@@ -72,14 +72,14 @@
         1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1,
         2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.0, 3.1, 3.2,
         3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9
-    ] // vetor de id
+    ] // matriz de id
 
     function buscar(col) {
         for (let i = 0; i < id.length; i++) {
-            vetor[i] = Object.assign({}, objColuna); // copia o objeto
+            matriz[i] = Object.assign({}, objColuna); // copia o objeto
 
-            vetor[i].Linha = id[i] // acrescenta a busca
-            vetor[i].Numero = col[i] //acrecenta a coluna
+            matriz[i].Linha = id[i] // acrescenta a busca
+            matriz[i].Numero = col[i] //acrecenta a coluna
         }
     }
     let numero2
@@ -124,8 +124,8 @@
             }
         }
         for (let i = 0; i < id.length; i++) {
-            if (casa2 == vetor[i].Linha) {
-                resul = (vetor[i].Numero)
+            if (casa2 == matriz[i].Linha) {
+                resul = (matriz[i].Numero)
             }
         }
         return resul;

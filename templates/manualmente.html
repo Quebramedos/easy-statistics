@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
   <title>Easy Statics</title>
   <!-- Slider -->
-  <link href="../noUiSlider-12.0.0/distribute/nouislider.min.css" rel="stylesheet">
+  <link type="text/javascript" href="..\script\src\nouislider.js" rel="stylesheet">
   <style>
     #slider {
       width: 250px;
@@ -33,6 +33,7 @@
 
   function botao() {
     str = document.getElementById("textarea1").value
+  
     vet100 = str.split(' ');
 
     if (isNaN(vet100[1])) {
@@ -87,14 +88,14 @@
 
       <!-- Seleção de amostra ou população -->
 
-      <form action="#">
+      <form action="#" name="estimacao" onchange="estima()">
         <p>
           <label>
-            <input class="with-gap" name="group1" type="radio" checked />
+            <input class="with-gap" value=1 name="group1" type="radio" id="amostra" checked />
             <span>Amostra</span>
           </label>
           <label>
-            <input class="with-gap" name="group1" type="radio" />
+            <input class="with-gap" value=0 name="group1" type="radio" id="população">
             <span>População</span>
           </label>
         </p>
@@ -116,7 +117,7 @@
 
       <!-- Botão de confirmação dos dados -->
       <div class="row center">
-        <a id="download-button" onclick=botao() class="btn-large waves-effect waves-light light-blue lighten-1">CONFIRMAR</a>
+        <a id="download-button" onclick="botao(),estima()" class="btn-large waves-effect waves-light light-blue lighten-1">CONFIRMAR</a>
       </div>
 
     </div>
@@ -143,12 +144,12 @@
 
 
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="../js/materialize.js"></script>
   <script src="../js/init.js"></script>
-
+  <script type="text/javascript" src="..\script\Senso.js"></script>
   <!-- Slider -->
-  <script src="../noUiSlider-12.0.0/distribute/nouislider.js"></script>
+  <script type="text/javascript" src="..\script\src\nouislider.js"></script>
 
 </body>
 

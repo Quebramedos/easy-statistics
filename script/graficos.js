@@ -18,6 +18,18 @@ Highcharts.setOptions({
 //grafico discreta
 function colunas(x, y) {
     Highcharts.chart('container', {
+        lang: {
+            downloadJPEG: 'Baixar imagem JPEG',
+            downloadPDF: 'Baixar arquivo PDF',
+            downloadPNG: 'Baixar imagem PNG',
+            downloadSVG: 'Baixar vetor SVG',
+            printChart: 'Imprimir gráfico',
+            downloadCSV: 'Baixar arquivo CSV',
+            downloadXLS: 'Baixar arquivo XLS',
+            viewData: 'Tabela de dados',
+            openInCloud: 'Abrir na Nuvem'
+
+        },
         chart: {
             type: 'column'
         },
@@ -81,6 +93,18 @@ function colunas(x, y) {
 function graficoContinuo(vet, vet2) {
     // graficoContinuo(grafico, vetorLimpo)
     var chart = new Highcharts.Chart({
+        lang: {
+            downloadJPEG: 'Baixar imagem JPEG',
+            downloadPDF: 'Baixar arquivo PDF',
+            downloadPNG: 'Baixar imagem PNG',
+            downloadSVG: 'Baixar vetor SVG',
+            printChart: 'Imprimir gráfico',
+            downloadCSV: 'Baixar arquivo CSV',
+            downloadXLS: 'Baixar arquivo XLS',
+            viewData: 'Tabela de dados',
+            openInCloud: 'Abrir na Nuvem'
+
+        },
         chart: {
             renderTo: 'container',
             type: 'column',
@@ -90,7 +114,7 @@ function graficoContinuo(vet, vet2) {
             text: 'Gráfico Quantitativo'
         },
         subtitle: {
-            text: "Variáveis continuas"
+            text: "Variáveis Continuas"
         },
 
         xAxis: {
@@ -143,26 +167,30 @@ function graficoContinuo(vet, vet2) {
 
 
 //grafico pizza
-function pizza(x, y) {
-    // Radialize the colors
-    Highcharts.setOptions({
-        colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
-            return {
-                radialGradient: {
-                    cx: 0.5,
-                    cy: 0.3,
-                    r: 0.7
-                },
-                stops: [
-                    [0, color],
-                    [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
-                ]
-            };
-        })
-    });
+function pizza(vet, vet2) {
+    //Variavel para parametro do gráfico
+    let variavelPesq = []
+    for (let i = 0; i < vet.length; i++) {
+        let variAux = []
+        variAux.push(vet2[i])
+        variAux.push(vet[i])
 
+        variavelPesq.push(variAux)
+
+    }
     // Build the chart
     Highcharts.chart('container', {
+        lang: {
+            downloadJPEG: 'Baixar imagem JPEG',
+            downloadPDF: 'Baixar arquivo PDF',
+            downloadPNG: 'Baixar imagem PNG',
+            downloadSVG: 'Baixar vetor SVG',
+            printChart: 'Imprimir gráfico',
+            downloadCSV: 'Baixar arquivo CSV',
+            downloadXLS: 'Baixar arquivo XLS',
+            viewData: 'Tabela de dados',
+            openInCloud: 'Abrir na Nuvem'
+        },
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -170,7 +198,10 @@ function pizza(x, y) {
             type: 'pie'
         },
         title: {
-            text: 'Browser market shares in January, 2018'
+            text: 'Gráfico Pizza'
+        },
+        subtitle: {
+            text: 'Variáveis Qualitativas'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -181,41 +212,19 @@ function pizza(x, y) {
                 cursor: 'pointer',
                 dataLabels: {
                     enabled: true,
+
                     format: '<b>{point.name}</b>: {point.percentage:.1f} %',
                     style: {
                         color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
                     },
                     connectorColor: 'silver'
-                }
+                },
+                showInlegend: true
             }
         },
         series: [{
-            name: 'Share',
-            data: [{
-                    name: 'Chrome',
-                    y: 61.41
-                },
-                {
-                    name: 'Internet Explorer',
-                    y: 11.84
-                },
-                {
-                    name: 'Firefox',
-                    y: 10.85
-                },
-                {
-                    name: 'Edge',
-                    y: 4.67
-                },
-                {
-                    name: 'Safari',
-                    y: 4.18
-                },
-                {
-                    name: 'Other',
-                    y: 7.05
-                }
-            ]
+            name: 'Porcentagem',
+            data: variavelPesq
         }]
     });
-}
+};

@@ -29,6 +29,12 @@
 
 
   vet100 = vet100.split(',');
+  if (isNaN(vet100[1])) {
+    vet100 = vet100.map(String);
+
+  } else {
+    vet100 = vet100.map(Number);
+  }
   console.log("VETOR: " + vet100);
 
 
@@ -87,11 +93,22 @@
           <tr>
             <td>Coeficiente</td>
             <td id="coificiente"></td>
+          <tr>
+            <td>Moda de King</td>
+            <td id="modaKing"></td>
+          </tr>
+          <tr>
+            <td>Moda de Cuzber</td>
+            <td id="modaCuzber"></td>
+          </tr>
+          <tr>
+            <td>Moda de Pearson</td>
+            <td id="modaPearson"></td>
+          </tr>
           </tr>
         </tbody>
       </table>
 
-      <br><br>
       <!-- Quartil -->
       <a class='dropdown-trigger btn' data-target='dropdown1'>Quartil</a>
       <!-- Dropdown Structure -->
@@ -172,7 +189,8 @@
 
           <!-- Distribuição Binomial -->
           <div id="dis_binomial" class="col s12">
-            <br><br>
+            <p>Binomial</p>
+
             <form class="formulario-validacao" id="form">
 
               <div class="row">
@@ -194,9 +212,7 @@
               </div>
 
               <div class="input-field col s3">
-                <select id="cbopçoes" onchange="optionCheck()">
-
-
+                <select id="cbopçoes">
                   <option value="Ex_igual" selected>EXATAMENTE</option>
                   <option value="Maior_que">MAIOR Que</option>
                   <option value="Menor_que">MENOR Que</option>
@@ -218,17 +234,15 @@
                 <label for="nome">Até(Max)</label>
               </div>
 
-              <button type="button" name="submit" value="Enviar" onclick="botao(this.form),casos()" class="css3button">Enviar</button>
+              <button type="button" name="submit" value="Enviar" onclick="disBinomial(),casos()" class="css3button">Enviar</button>
 
               <div id="resultado">
                 <h2>Resultado:</h2>
               </div>
             </form>
 
-            <script type="text/javascript" src="../script/dis_binomial.js"></script>
-
           </div>
-          
+
 
           <!-- Distribuição Normal -->
           <div id="dis_normal" class="col s12">
@@ -236,63 +250,93 @@
 
             <form id="form1">
               <!-- Média -->
-              <div class="input-field col s3">
-                <input type="text" id="media" class="validate">
-                <label class="active" for="nome">Digite a média</label>
-              </div>
+              <div class="row">
+                <div class="input-field col s3">
 
-              <div class="input-field col s3">
-                <!-- Desvio Padrão -->
-                <input type="text" id="desvioPadrao" class="validate">
-                <label class="active" for="nome">Digite o desvio padrão</label>
-              </div>
+                  <input type="text" id="mediaN" class="validate">
+                  <label class="active" for="nome">Digite a média</label>
+                </div>
 
-              <div class="input-field col s3">
-                <!-- Select -->
+                <div class="input-field col s3">
+                  <!-- Desvio Padrão -->
+                  <input type="text" id="desvioPadraoN" class="validate">
+                  <label class="active" for="nome">Digite o desvio padrão</label>
+                </div>
 
-                <select id="cbopçoes" onchange="optionCheck()">
-                  <option value="Maior_que">MAIOR Que</option>
-                  <option value="Menor_que">MENOR Que</option>
-                  <option value="Ex_igual">EXATAMENTE</option>
-                  <option value="Entre">ENTRE</option>
-                </select>
-              </div>
+                <div class="input-field col s3">
+                  <!-- Select -->
 
-              <div class="input-field col s3">
-                <!-- Variável -->
-                <input type="text" id="variavel" class="validate">
-                <label class="active" for="nome">Variável</label>
-              </div>
+                  <select id="cbopçoesN">
+                    <option value="Maior_queN">MAIOR Que</option>
+                    <option value="Menor_queN">MENOR Que</option>
+                    <option value="EntreN">ENTRE</option>
+                  </select>
+                </div>
 
+                <div class="input-field col s3">
+                  <!-- Variável -->
+                  <input type="text" id="variavelN" class="validate">
+                  <label class="active" for="nome">Variável</label>
+                </div>
 
-              <div class="input-field col s3" id="mostrar" style="border:1px;visibility:hidden;">
-                <label for="nome">Até(Max)</label>
-                <input type="text" id="maior" />
+                <br>
+                <div class="input-field col s3" id="mostrarN">
+                  <label for="nome">Até(Max)</label>
+                  <input type="text" id="maiorN" class="validate">
+                </div>
 
-              </div>
-
-
-              <button class="css3button" type="button" value="Confirmar" onclick="botao(this.form),casos()">Enviar</button>
-
+                <button class="button" type="button" value="Confirmar" onclick="botaoN(),casosN()">Enviar</button>
 
             </form>
-            <script type="text/javascript" src="../script/dis_normal.js"></script>
           </div>
+          <div id="resultadoN">
 
-          <div id="resultado">
-            <h2>Resultado:</h2>
           </div>
-
         </div>
 
-        <!-- Distribuição Uniforme -->
-        <div id="dis_uniforme" class="col s12">
-          <p>Uniforme</p>
-        </div>
 
 
       </div>
+
+      <!-- Distribuição Uniforme -->
+      <div id="dis_uniforme" class="col s12">
+        <p>Uniforme</p>
+
+
+        <div class="input-field col s3">
+          <label class="active">Digite o Minimo:</label>
+          <input type="text" id="minimo" class="validate">
+        </div>
+
+        <div class="input-field col s3">
+          <label class="active">Digite o Máximo:</label>
+          <input type="text" id="maximo" class="validate">
+        </div>
+
+        <br>
+        <div class="input-field col s3">
+          <select name="combo" id="cbopçoesU">
+            <option value="maior_Q">Maior que</option>
+            <option value="menor_Q">Menor que</option>
+            <option value="Entre">Entre</option>
+          </select>
+        </div>
+        <div class="input-field col s3">
+          <label for="valor" class="active">Digite o valor:</label>
+          <input type="text" id="valor" class="validate">
+        </div>
+
+        <div class="input-field col s3">
+          <label for="nome" class="active">Até:</label>
+          <input type="text" id="Maior" class="validate">
+
+        </div>
+        <button id="botao" onclick="uniforme(), casosU()">Enviar</button>
+
+      </div>
+      <div id='resultadoU'></div>
     </div>
+  </div>
   </div>
 
   </div>
@@ -321,16 +365,20 @@
   <script src="../js/materialize.js"></script>
   <script src="../js/init.js"></script>
 
+  <script type="text/javascript" src="..\script\Senso.js"></script>
+  <script type="text/javascript" src="../script/dis_normal.js"></script>
+  <script type="text/javascript" src="../script/tabelanormal.js"></script>
   <script type="text/javascript" src="../script/validacaoDaTabela.js"></script>
   <script type="text/javascript" src="../script/Continua.js"></script>
   <script type="text/javascript" src="../script/Discreta.js"></script>
   <script type="text/javascript" src="../script/graficos.js"></script>
   <script type="text/javascript" src="../script/Qualitativa.js"></script>
-  
+  <script type="text/javascript" src="../script/dis_binomial.js"></script>
+  <script type="text/javascript" src="../script/dis_uniforme.js"></script>
 
 
   <!--
-  
+  <script type="text/javascript" src="../script/dis_normal.js"></script>
   <script type="text/javascript" src="../script/dis_uniforme.js"></script>
   -->
   <script>

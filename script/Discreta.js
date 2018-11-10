@@ -1,16 +1,4 @@
-let est = 0;
 let grafico2 = []
-
-function estima() {
-    var i
-
-    for (i = 0; i < document.estimacao.quan.length; i++) {
-        if (document.estimacao.quan[i].checked) {
-            break;
-        }
-    }
-    return est = document.estimacao.quan[i].value
-}
 
 function total(vet100, vetorLimpo) {
 
@@ -71,6 +59,7 @@ function total(vet100, vetorLimpo) {
     }
     // { a: 1 }
     vetor.push(obj)
+
     //-----------------------------------------------------------------
 
     //joga frequencia
@@ -179,7 +168,8 @@ function total(vet100, vetorLimpo) {
             desvioPadrao += parseFloat((Math.pow(aux2, 2) * vetor[i].frequencia).toFixed(2)) //+ desvioPadrao)
 
         }
-        aux3 = desvioPadrao / (aux - est) //auxiliar para receber o desvio
+        let estimaçao = window.sessionStorage.getItem("senso")
+        aux3 = desvioPadrao / (aux - estimaçao) //auxiliar para receber o desvio
         desvioPadrao = parseFloat(Math.sqrt(aux3).toFixed(2))
         //--------------------------------------------------------------
         //coificiente padrao
@@ -195,15 +185,11 @@ function total(vet100, vetorLimpo) {
             somatoriaFi += vetor[i].variavelPesquisada;
             vetor[i].somaVariavel = somatoriaFi
         }
+        window.sessionStorage.setItem("SomaFI", somatoriaFi)
         return somatoriaFi
     }
     somaFi();
     console.log(vetor)
-    //Medidas separatrizes
-    let Q = 0
-    let k = 0
-    let param;
-
     //-------------------------------------------------------------------
     //cria 1 tabela
     var HTML = "<table class='bordered striped centered highlight responsive-table'><thead>";
@@ -252,10 +238,10 @@ function total(vet100, vetorLimpo) {
     tbl_resul += ('<td>' + desvioPadrao + '</td>')
     tbl_resul += ('<td>' + coificiente + '%' + '</td>')
     tbl_resul += ('</tr></table>')
-    
+
     //document.getElementById("outResul").innerHTML = tbl_resul; //atribui no div
     colunas(vetorLimpo, grafico2)
-    
+
     document.getElementById("moda").innerHTML = moda;
     document.getElementById("media").innerHTML = media;
     document.getElementById("mediana").innerHTML = mediana;
