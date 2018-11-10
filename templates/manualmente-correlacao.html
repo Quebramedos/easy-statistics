@@ -23,8 +23,9 @@
 <script>
   function botao() {
     str = document.getElementById("textarea1").value
-  
-    vet100 = str.split(' ');
+    str2 = document.getElementById("textarea2").value
+    vet100 = str.split(',');
+    vet200 = str2.split(',')
 
     if (isNaN(vet100[1])) {
       vet100 = vet100.map(String);
