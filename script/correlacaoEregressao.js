@@ -1,5 +1,6 @@
 //Variaveis
 let Xindependente = sessionStorage.getItem('vet100');
+console.log(Xindependente)
 let Ydependente = sessionStorage.getItem('vet200');
 let teste = []
 let contadorVetor = Xindependente.length
