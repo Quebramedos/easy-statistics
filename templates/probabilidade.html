@@ -36,6 +36,9 @@
       <div class="center container">
         <h4 class="center light-blue-text text-lighten-1">Probabilidade</h4>
       </div>
+
+      <br><br>
+
       <div class="row">
         <div class="col s12">
           <ul class="tabs">
@@ -48,13 +51,17 @@
           </ul>
         </div>
 
-        <div class="row">
-          <!-- Distribuição Binomial -->
-          <div id="dis_binomial" class="col s12">
-            <br><br>
+        <br><br>
+        <br><br>
+        
+
+        <!-- Distribuição Binomial -->
+        <div id="dis_binomial">
+
+          <div class="row">
             <form class="formulario-validacao" id="form">
 
-              <div class="row">
+              <div class="col s12">
                 <div class="input-field col s3">
                   <input type="text" name="campo" id="totalBino_N" class="validate">
                   <label class="active" for="nome">Tamanho(N)</label>
@@ -73,7 +80,7 @@
               </div>
 
               <div class="input-field col s3">
-                <select id="cbopçoes" onchange="optionCheck()">
+                <select id="cbopçoes">
                   <option value="Ex_igual" selected>EXATAMENTE</option>
                   <option value="Maior_que">MAIOR Que</option>
                   <option value="Menor_que">MENOR Que</option>
@@ -90,83 +97,145 @@
                 <label class="active" for="nome">Variavel(K)</label>
               </div>
 
-              <div id="mostrar" style="border:1px;visibility:hidden;">
-                <input type="text" id="maior">
+              <div class="input-field col s3" id="mostrar">
                 <label for="nome">Até(Max)</label>
-              </div>
-
-              <button type="button" name="submit" value="Enviar" onclick="disBinomial(this.form),casos()" class="css3button">Enviar</button>
-
-              <div id="resultado">
-                <h2>Resultado:</h2>
+                <input type="text" id="maior" class="validate">
               </div>
             </form>
-
           </div>
 
-          <!-- Distribuição Normal -->
-          <div id="dis_normal" class="col s12">
-            <p>Normal</p>
+          <div class="row">
 
-            <form id="form1">
+            <div class="col s3">
+              <a onclick="disBinomial(),casos()" name="submit" value="Enviar" class="btn-large waves-effect waves-light light-blue lighten-1">Enviar</a>
+            </div>
+            <div class="col s9" id="resultadoB">
+              <h5 class="header center light-blue-text text-lighten-1">Resultado:</h5>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Distribuição Normal -->
+        <div id="dis_normal">
+
+          <div class="row">
+            <form class="formulario-validacao" id="form1">
               <!-- Média -->
-              <div class="input-field col s3">
-                <input type="text" id="media" class="validate">
-                <label class="active" for="nome">Digite a média</label>
-              </div>
+              <div class="col s12">
+                <div class="input-field col s3">
+                  <input type="text" id="mediaN" class="validate">
+                  <label class="active" for="nome">Digite a média</label>
+                </div>
 
-              <div class="input-field col s3">
-                <!-- Desvio Padrão -->
-                <input type="text" id="desvioPadrao" class="validate">
-                <label class="active" for="nome">Digite o desvio padrão</label>
-              </div>
+                <div class="input-field col s3">
+                  <!-- Desvio Padrão -->
+                  <input type="text" id="desvioPadraoN" class="validate">
+                  <label class="active" for="nome">Digite o desvio padrão</label>
+                </div>
 
+
+
+
+              </div>
               <div class="input-field col s3">
                 <!-- Select -->
-
-                <select id="cbopçoes" onchange="optionCheck()">
-                  <option value="Maior_que">MAIOR Que</option>
-                  <option value="Menor_que">MENOR Que</option>
-                  <option value="Ex_igual">EXATAMENTE</option>
-                  <option value="Entre">ENTRE</option>
+                <select id="cbopçoesN">
+                  <option value="Maior_queN">MAIOR Que</option>
+                  <option value="Menor_queN">MENOR Que</option>
+                  <option value="EntreN">ENTRE</option>
                 </select>
               </div>
 
               <div class="input-field col s3">
                 <!-- Variável -->
-                <input type="text" id="variavel" class="validate">
+                <input type="text" id="variavelN" class="validate">
                 <label class="active" for="nome">Variável</label>
               </div>
 
-
-              <div class="input-field col s3" id="mostrar" style="border:1px;visibility:hidden;">
+              <br>
+              <div class="input-field col s3" id="mostrarN">
                 <label for="nome">Até(Max)</label>
-                <input type="text" id="maior" />
-
+                <input type="text" id="maiorN" class="validate">
               </div>
 
-
-              <button class="css3button" type="button" value="Confirmar" onclick="botao(this.form),casos()">Enviar</button>
-
-
             </form>
-            
+
+
+
+          </div>
+          <div class="row">
+            <div class="col s3">
+              <a onclick="botaoN(),casosN()" value="Confirmar" class="btn-large waves-effect waves-light light-blue lighten-1">Enviar</a>
+            </div>
+
+            <div id="resultadoN" class="col s9">
+              <h5 class="header center light-blue-text text-lighten-1">Resultado:</h5>
+            </div>
+
           </div>
 
-          <div id="resultado">
-            <h2>Resultado:</h2>
-          </div>
+
 
         </div>
 
-      </div>
 
+        <!-- Distribuição Uniforme -->
+        <div id="dis_uniforme">
+          <div class="row">
+
+            <form class="formulario-validacao" id="form1">
+              <div class="col s12">
+                <div class="input-field col s3">
+                  <label class="active">Digite o Minimo:</label>
+                  <input type="text" id="minimo" class="validate">
+                </div>
+
+                <div class="input-field col s3">
+                  <label class="active">Digite o Máximo:</label>
+                  <input type="text" id="maximo" class="validate">
+                </div>
+              </div>
+
+              <div class="input-field col s3">
+                <select name="combo" id="cbopçoesU">
+                  <option value="maior_Q">Maior que</option>
+                  <option value="menor_Q">Menor que</option>
+                  <option value="Entre">Entre</option>
+                </select>
+              </div>
+
+              <div class="input-field col s3">
+                <label for="valor" class="active">Digite o valor:</label>
+                <input type="text" id="valor" class="validate">
+              </div>
+
+              <div class="input-field col s3">
+                <label for="nome" class="active">Até:</label>
+                <input type="text" id="Maior" class="validate">
+
+              </div>
+            </form>
+          </div>
+
+          <div class="row">
+            <div class="col s3">
+              <a id="botao" onclick="uniforme(), casosU()" class="btn-large waves-effect waves-light light-blue lighten-1">Enviar</a>
+            </div>
+
+            <div id='resultadoU' class="col s9">
+              <h5 class="header center light-blue-text text-lighten-1">Resultado:</h5>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-  </div>
-  <br>
+  
+  <br><br>
 
-  <br>
+  
 
   <footer class="page-footer green accent-3">
     <div class="container">
@@ -193,7 +262,7 @@
 
   <!-- Script Distribuição Binomial -->
   <script type="text/javascript" src="../script/dis_binomial.js"></script>
-  
+
   <!-- Script Distribuição Normal -->
   <script type="text/javascript" src="../script/dis_normal.js"></script>
 

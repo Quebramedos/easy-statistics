@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Easy Statistics</title>
+  <!-- Slider -->
+  <link type="text/javascript" href="..\script\src\nouislider.js" rel="stylesheet">
+  <style>
+    #slider {
+      width: 250px;
+      margin: 100px auto;
+    }
+  </style>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<script>
+  /*
+  function botao() {
+    str = document.getElementById("textarea1").value
+    vet100 = str.split(' ').map(Number);
+
+    window.sessionStorage.setItem("vet100", vet100);
+    window.location.href = "dados.html";
+  }
+  */
+
+  function botao() {
+    str = document.getElementById("textarea1").value
+  
+    vet100 = str.split(' ');
+
+    if (isNaN(vet100[1])) {
+      vet100 = vet100.map(String);
+
+    } else {
+      vet100 = vet100.map(Number);
+    }
+    console.log(vet100)
+    window.sessionStorage.setItem("vet100", vet100);
+    window.location.href = "dados-correlacao.html";
+  }
+</script>
+
+<body>
+  <nav class="navegador" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statistics</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Help</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <!-- Navegador da página -->
+  <nav>
+    <div class="nav-wrapper green accent-3">
+      <div class="col s12 container">
+        <a href="../index.html" class="breadcrumb">Início</a>
+        <a href="inserir-dados.html" class="breadcrumb">Opções de entrada</a>
+        <a class="breadcrumb">Entrada de dados</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <div class="center container">
+        <div class="section">
+          <!--   Icon Section   -->
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">border_color</i></h2>
+            <h4 class="center light-blue-text text-lighten-1">Inserção manual</h4>
+            <p class="light">Você pode inserir manualmente os dados estatíscos separando os por espaço.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seleção de amostra ou população -->
+
+      <form action="#" name="estimacao" onchange="estima()">
+        <p>
+          <label>
+            <input class="with-gap" value=1 name="group1" type="radio" id="amostra" checked />
+            <span>Amostra</span>
+          </label>
+          <label>
+            <input class="with-gap" value=0 name="group1" type="radio" id="população">
+            <span>População</span>
+          </label>
+        </p>
+      </form>
+
+
+
+      <!-- Entrada de dados (manualmente) -->
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <label for="textarea1">Digite os dados separados por espaço</label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Botão de confirmação dos dados -->
+      <div class="row center">
+        <a id="download-button" onclick="botao(),estima()" class="btn-large waves-effect waves-light light-blue lighten-1">CONFIRMAR</a>
+      </div>
+
+    </div>
+  </div>
+  <br><br>
+  <br><br>
+
+  <footer class="page-footer green accent-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Sobre</h5>
+          <p class="grey-text text-lighten-4">Nós somos um time de estudantes universitários inovando a maneira de
+            computar dados estatísticos, visando praticidade e comodidade ao usuário.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Coprodução Equipe de Estatística
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+  <script type="text/javascript" src="..\script\Senso.js"></script>
+  <!-- Slider -->
+  <script type="text/javascript" src="..\script\src\nouislider.js"></script>
+
+</body>
+
+</html>
