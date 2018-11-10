@@ -1,6 +1,6 @@
 //Variaveis
-let Xindependente = [33, 25, 24, 18, 12];
-let Ydependente = [300, 400, 500, 600, 700];
+let Xindependente = sessionStorage.getItem('vet100);
+let Ydependente = sessionStorage.getItem('vet200');
 let teste = []
 let contadorVetor = Xindependente.length
 //Função somatoria
