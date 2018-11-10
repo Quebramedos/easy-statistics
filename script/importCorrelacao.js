@@ -1,4 +1,5 @@
-let vet100x = []
+let vet100 = []
+let vet100x=[]
 let vet200
 let meioVetor
 var leitorDeCSV = new FileReader()
@@ -18,15 +19,15 @@ function leCSV(evt) {
     for (var i = 0; i < fileArr.length; i++) {
         fileArr[i] = fileArr[i].replace(/,/g, ".")
         //limpa a string e  joga no vetor
-        vet100x[i] = fileArr[i].split(';').map(Number);
+        vet100[i] = fileArr[i].split(';').map(Number);
     }
-    meioVetor = vet100x.length / 2
+    meioVetor = vet100.length / 2
     // console.log(vet100)
-    vet200 = vet100x.slice(meioVetor, vet100x.length)
-    console.log(vet100x)
+    vet200 = vet100.slice(meioVetor, vet100.length)
+    console.log(vet100)
     window.sessionStorage.setItem("vet200", vet200);
     window.sessionStorage.setItem("vet100x", vet100);
-    return vet100x // retorna o vetor 
+    return vet100 // retorna o vetor 
 }
 
 /*
