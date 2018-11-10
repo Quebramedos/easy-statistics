@@ -133,4 +133,5 @@ function chamarSeparatrizes(vetor) {
     casosQuartil(vetor);
     casosQuintil(vetor);
     casosDecil(vetor);
+    casoPercentil(vetor);
 }
