@@ -1,6 +1,6 @@
 //Variaveis
 let Xindependente =[]
- let pegax= (sessionStorage.getItem('vet100x');
+ let pegax= (sessionStorage.getItem('vet100x')
                   Xindepentende = pegax.split(',').map(Number);
 console.log(Xindependente)
 let Ydependente = []
