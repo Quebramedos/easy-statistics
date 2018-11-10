@@ -24,41 +24,78 @@
 
 
   <script>
-    vet(Xindependente, Ydependente)
+  vet(Xindependente, Ydependente)
     let Y
     let X
 
     function formulaReta() {
-      console.log('demanda' + regressao(100))
-      console.log('r: ' + Correlacao())
-      X = parseFloat(document.getElementById('x').value)
-      Y = parseFloat(document.getElementById('y').value)
+        let recebeX
+        let recebeY
+        let saida
+        console.log('demanda' + regressao(100))
+        console.log('r: ' + Correlacao())
+        recebeX = parseFloat(document.getElementById('XeY').value)  
+     
+            let opçoesCombo = document.getElementById("combo").value
+            switch (opçoesCombo) {
+                case "X":
+                    X = recebeX
+                    saida = ('Y vai ser igual: ' + demanda(X))
+                    //saida da resposta
+                    document.getElementById("saidaFormula").innerHTML = saida
+                    //zera x
+                    break;
+                case "Y":
+                Y = recebeX
+                   PrecoDemanda(Y)
+                    saida = ('X vai ser igual: ' + PrecoDemanda(Y))
+                    //saida da resposta
+                    document.getElementById("saidaFormula").innerHTML = saida
+                    //zera x
+                    break;
+           
+                default:
+            }
+        return X, Y
 
-      if (X != 0) {
-        demanda(X)
-        let saida = ('Y vai ser igual: ' + demanda(X))
-        //saida da resposta
-        document.getElementById("saidaFormula").innerHTML = saida
-        //zera x
-        document.getElementById('form').reset()
-
-      } else if (Y != 0) {
-        PrecoDemanda(Y)
-        let saida = ('X vai ser igual: ' + PrecoDemanda(Y))
-        //saida da resposta
-        document.getElementById("saidaFormula").innerHTML = saida
-        //zera x
-        document.getElementById('form').reset()
-      };
-
-      // variavel preço PrecoDemanda(Y)
-
-
-      return X, Y
+    }
 
     }
 //('A demanda será de ' + demanda(X))
-//('<br>');
+//('<br>');vet(Xindependente, Ydependente)
+    let Y
+    let X
+
+    function formulaReta() {
+        let recebeX
+        let recebeY
+        let saida
+        console.log('demanda' + regressao(100))
+        console.log('r: ' + Correlacao())
+        recebeX = parseFloat(document.getElementById('XeY').value)  
+     
+            let opçoesCombo = document.getElementById("combo").value
+            switch (opçoesCombo) {
+                case "X":
+                    X = recebeX
+                    saida = ('Y vai ser igual: ' + demanda(X))
+                    //saida da resposta
+                    document.getElementById("saidaFormula").innerHTML = saida
+                    //zera x
+                    break;
+                case "Y":
+                Y = recebeX
+                   PrecoDemanda(Y)
+                    saida = ('X vai ser igual: ' + PrecoDemanda(Y))
+                    //saida da resposta
+                    document.getElementById("saidaFormula").innerHTML = saida
+                    //zera x
+                    break;
+           
+                default:
+            }
+        return X, Y
+    }
 //('O preço será de ' + PrecoDemanda(Y) + ' em relação a demanda')
     //  outroGrafico()
   </script>
