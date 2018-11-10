@@ -27,7 +27,7 @@ function leCSV(evt) {
     vet200 = vet100.slice(meioVetor, vet100.length)
     console.log(vet100)
     window.sessionStorage.setItem("vet200", vet200);
-    window.sessionStorage.setItem("vet100x", vet100);
+    window.sessionStorage.setItem("vet100x", vet100x);
     return vet100 // retorna o vetor 
 }
 
