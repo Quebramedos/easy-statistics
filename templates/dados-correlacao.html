@@ -105,6 +105,23 @@
 
         </div>
       </div>
+
+      <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+
+      <div>
+        <p>
+
+          <form action="input" onchange="formulaReta()" id="form">
+            <div id='Formula'></div>
+            <label for="X">Digite um valor para X:</label>
+            <input type="text" id='x' size="4">
+            <label for="X">Digite um valor para Y:</label>
+            <input type="text" id='y' size="4">
+
+            <div id="saidaFormula"></div>
+          </form>
+        </p>
+      </div>
     </div>
   </div>
 
@@ -138,10 +155,7 @@
   <script src="../script/graficoDispercao.js"></script>
 
 
-  <!--
-  <script type="text/javascript" src="../script/dis_normal.js"></script>
-  <script type="text/javascript" src="../script/dis_uniforme.js"></script>
-  -->
+
   <script>
     $(document).ready(function () {
       $('.sidenav').sidenav();
