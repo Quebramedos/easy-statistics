@@ -1,3 +1,5 @@
+let teste = []
+
 function vet(Xindependente, dependente) {
     // Objeto para bolinhas
     for (let i = 0; i < Xindependente.length; i++) {
