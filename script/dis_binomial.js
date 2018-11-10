@@ -67,7 +67,7 @@ function casos() {
             binomial(n, k) //passa o parametro normal
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 PK.toFixed(2) + '%' + '</h2>')
-            document.getElementById("resultado").innerHTML = resposta
+            document.getElementById("resultadoB").innerHTML = resposta
             break;
             //------------------------------------------------------------
         case "Maior_que": //caso maior que
@@ -75,41 +75,41 @@ function casos() {
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
             //saida
-            document.getElementById("resultado").innerHTML = resposta
+            document.getElementById("resultadoB").innerHTML = resposta
             break;
             //-----------------------------------------------------------------
         case "Menor_que":
             totalBino(0, k - 1) //passa o parametro 0 como inicial ate k -1
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
-            document.getElementById("resultado").innerHTML = resposta
+            document.getElementById("resultadoB").innerHTML = resposta
             break;
             //-------------------------------------------------------------------
         case "P_menos":
             totalBino(k, n) //passa o parametro k como inicial, ate n
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
-            document.getElementById("resultado").innerHTML = resposta
+            document.getElementById("resultadoB").innerHTML = resposta
             //-----------------------------------------------------------------------
         case "Ate":
             totalBino(0, k) //passa o parametro 0 como inicial ate k
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
-            document.getElementById("resultado").innerHTML = resposta
+            document.getElementById("resultadoB").innerHTML = resposta
             break;
             //-----------------------------------------------------------------------
         case "N_Minimo":
             totalBino(k, n) //passa o parametro 0 como inicial ate k
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
-            document.getElementById("resultado").innerHTML = resposta
+            document.getElementById("resultadoB").innerHTML = resposta
             break;
             //-------------------------------------------------------------------------
         case "N_Maximo":
             totalBino(0, k) //passa o parametro 0 como inicial ate k
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
-            document.getElementById("resultado").innerHTML = resposta
+            document.getElementById("resultadoB").innerHTML = resposta
             break;
             //----------------------------------------------------------------------------
         case "Entre":
@@ -117,7 +117,7 @@ function casos() {
             totalBino(k, maximo) //passa o parametro 0 como inicial ate k
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
-            document.getElementById("resultado").innerHTML = resposta
+            document.getElementById("resultadoB").innerHTML = resposta
             break;
         default:
     }

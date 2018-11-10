@@ -5,8 +5,8 @@ function separatrizes(parametro, vet, medida) {
     for (let i = 0; i < vet.length; ++i) {
         Q = (somatoriaFi * parametro) / 100;
         if (Q <= vet[i].somaVariavel) { //pesquisa o objeto e acha o lugar
-            return resposta = ('<h1>' + medida + '(' + Q + ')' +
-                vet[i].posiçao + "ºPosição" + '</h1>');
+            return resposta = ('<h4>' + medida + '(' + Q + ')' +
+                vet[i].posiçao + "ºPosição" + '</h4>');
         }
         resposta = ''
     }
@@ -110,6 +110,7 @@ function casosDecil(vetor) {
             break;
         default:
     }
+
     let Percentil = "Percentil"
 
     function casoPercentil(total, valor, medida) {
@@ -124,7 +125,11 @@ function casosDecil(vetor) {
                 document
                 */
     }
+    
+
 }
+
+
 
 
 function chamarSeparatrizes(vetor) {

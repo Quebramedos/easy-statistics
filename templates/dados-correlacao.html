@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Easy Statistics</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+  <!-- GRAFICO -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+  <style>
+    .tabela{
+      height: 1000px;
+    }
+  </style>
+
+</head>
+
+
+<body>
+  <!-- Navegador da página -->
+  <nav class="navegador" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statistics</a>
+
+    </div>
+  </nav>
+
+  <!-- Paginação -->
+  <nav>
+    <div class="nav-wrapper green accent-3 ">
+      <div class="col s12 container">
+        <a href="../index.html" class="breadcrumb">Início</a>
+        <a href="inserir-dados.html" class="breadcrumb">Opções de entrada</a>
+        <a href="inserir-dados.html" class="breadcrumb">Entrada de dados</a>
+        <a class="breadcrumb">Resultados</a>
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="container center">
+    <div class="row center">
+      <div class="col s16">
+        <div class="col s3">
+          <input id="input_X" class="validate">
+          <label class="active" for="nome">X</label>
+          <br><br>
+
+        </div>
+
+        <div class="col s3">
+          <input id="input_Y" class="validate">
+          <label class="active" for="nome">Y</label>
+          <br><br>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="page-footer green accent-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Sobre</h5>
+          <p class="grey-text text-lighten-4">Nós somos um time de estudantes universitários inovando a
+            maneira de
+            computar dados estatísticos, visando praticidade e comodidade ao usuário.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Coprodução Equipe de Estatística
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+
+  <script type="text/javascript" src="..\script\Senso.js"></script>
+  <script type="text/javascript" src="../script/dis_normal.js"></script>
+  <script type="text/javascript" src="../script/tabelanormal.js"></script>
+  <script type="text/javascript" src="../script/validacaoDaTabela.js"></script>
+  <script type="text/javascript" src="../script/Continua.js"></script>
+  <script type="text/javascript" src="../script/Discreta.js"></script>
+  <script type="text/javascript" src="../script/graficos.js"></script>
+  <script type="text/javascript" src="../script/Qualitativa.js"></script>
+  <script type="text/javascript" src="../script/dis_binomial.js"></script>
+  <script type="text/javascript" src="../script/dis_uniforme.js"></script>
+  <script src="../script/separatrizes.js"></script>
+
+
+  <!--
+  <script type="text/javascript" src="../script/dis_normal.js"></script>
+  <script type="text/javascript" src="../script/dis_uniforme.js"></script>
+  -->
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+    });
+
+    $(document).ready(function () {
+      $('.tabs').tabs();
+    });
+
+    // Ativa os botões DROPDOWN
+    $('.dropdown-trigger').dropdown();
+    $('.dropdown-trigger1').dropdown();
+    $('.dropdown-trigger2').dropdown();
+
+    // Ativa o select
+    $(document).ready(function () {
+      $('select').formSelect();
+    });
+  </script>
+
+</body>
+
+</html>

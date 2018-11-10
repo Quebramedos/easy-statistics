@@ -43,6 +43,43 @@
     limpa(vet100);
     teste();
   }
+
+  // Medidas separatrizes
+  let somatoriaFi = 0
+  //let resposta
+  // pra pegar do input
+
+  /// vetor de parametro
+  let vetor = []
+
+  let obj = {
+    variavelPesquisada: '',
+    somaVariavel: '',
+    posiçao: ''
+  }
+  let posi = 1
+  // atribui o objeto para as copias
+  for (let i = 0; i < vet100.length; ++i) {
+    vetor[i] = Object.assign({}, obj);
+    vetor[i].variavelPesquisada = vet100[i]
+    vetor[i].posiçao = posi
+    posi++
+  } // { a: 1 } 
+
+  // soma variavel
+  for (let i = 0; i < vet100.length; i++) {
+    somatoriaFi += vetor[i].variavelPesquisada
+    vetor[i].somaVariavel = somatoriaFi
+  }
+
+
+  console.log(vetor)
+  console.log('Soma de tudo: ' + somatoriaFi)
+</script>
+
+<script>
+
+
 </script>
 
 <body>
@@ -154,19 +191,16 @@
 
         <!-- Porcentil -->
         <div>
-          <input id="input_p" onchange="casosPercentil(vetor)" class="validate">
+          <input id="input_p" class="validate">
           <label class="active" for="nome">Porcentil(P)</label>
           <br><br>
-          <a onclick="chamarSeparatrizes(vetor)" class="btn-large waves-effect waves-light light-blue lighten-1">Enviar</a>
+          <a onclick="casosPercentil(vetor)" class="btn-large waves-effect waves-light light-blue lighten-1">Enviar</a>
         </div>
       </div>
 
-      <span style="color: rgb(255, 0, 0);">
-        <blink>
-          <div id="resultado"></div>
-        </blink>
-      </span>
-
+      <div id="resultado">
+        <h4 class="header center light-blue-text text-lighten-1">Resultado:</h4>
+      </div>
 
 
     </div>
@@ -213,7 +247,7 @@
 
           <!-- Distribuição Binomial -->
           <div id="dis_binomial" class="col s12">
-            <p>Binomial</p>
+
 
             <form class="formulario-validacao" id="form">
 
@@ -254,14 +288,14 @@
               </div>
 
               <div id="mostrar" style="border:1px;visibility:hidden;">
-                <input type="text" id="maior">
                 <label for="nome">Até(Max)</label>
+                <input type="text" id="maior">
               </div>
 
-              <button type="button" name="submit" value="Enviar" onclick="disBinomial(),casos()" class="css3button">Enviar</button>
+              <a onclick="disBinomial(),casos()" name="submit" value="Enviar" class="btn-large waves-effect waves-light light-blue lighten-1">Enviar</a>
 
-              <div id="resultado">
-                <h2>Resultado:</h2>
+              <div id="resultadoB">
+                <h4 class="header center light-blue-text text-lighten-1">Resultado:</h4>
               </div>
             </form>
 
@@ -270,9 +304,9 @@
 
           <!-- Distribuição Normal -->
           <div id="dis_normal" class="col s12">
-            <p>Normal</p>
 
-            <form id="form1">
+
+            <form class="formulario-validacao" id="form1">
               <!-- Média -->
               <div class="row">
                 <div class="input-field col s3">
@@ -309,9 +343,12 @@
                   <input type="text" id="maiorN" class="validate">
                 </div>
 
-                <button class="button" type="button" value="Confirmar" onclick="botaoN(),casosN()">Enviar</button>
+
+                <a onclick="botaoN(),casosN()" value="Confirmar" class="btn-large waves-effect waves-light light-blue lighten-1">Enviar</a>
+
 
             </form>
+
           </div>
           <div id="resultadoN">
 
@@ -355,7 +392,10 @@
           <input type="text" id="Maior" class="validate">
 
         </div>
-        <button id="botao" onclick="uniforme(), casosU()">Enviar</button>
+
+
+        <a id="botao" onclick="uniforme(), casosU()" class="btn-large waves-effect waves-light light-blue lighten-1">Enviar</a>
+
 
       </div>
       <div id='resultadoU'></div>
