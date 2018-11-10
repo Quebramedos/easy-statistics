@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- ajuda a acentuação -->
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>ES-Discreta</title>
+    <div class="page-header">
+        <h1>Easy Statistics: Discreta</h1>
+    </div>
+    <style></style>
+</head>
+<script src="separatrizes.js"></script>
+<script>
+    let somatoriaFi =0
+let resposta
+// pra pegar do input
+
+    /// vetor de parametro
+let vet100 = [16, 17, 18, 19, 20, 21, 22]
+let vetor =[]
+
+let obj = {
+variavelPesquisada:'',
+somaVariavel: '',
+posiçao: ''
+}
+let posi =1
+// atribui o objeto para as copias
+for (let i = 0; i < vet100.length; ++i){
+        vetor[i] = Object.assign({}, obj);
+        vetor[i].variavelPesquisada = vet100[i]
+        vetor[i].posiçao = posi
+        posi++       
+} // { a: 1 } 
+
+// soma variavel
+        for (let i = 0; i < vet100.length; i++) { 
+            somatoriaFi += vetor[i].variavelPesquisada
+            vetor[i].somaVariavel = somatoriaFi
+        }
+    
+ 
+console.log(vetor)
+console.log('Soma de tudo: ' + somatoriaFi)
+        
+</script>
+
+<body>
+    <div class="tab-content">
+        <div>
+            <h2>Selecione a Estimação:</h2>
+            <form name="estimacao" onchange="estima()"><input type="radio" name="quan" value=0 />População<br /><input
+                    type="radio" name="quan" value=1 />Amostra <br>
+            </form>
+            <h2>Digite os Dados:</h2>
+            <form id="form">
+                <textarea type="text" id='input' name="campo" autocomplete="off" placeholder="DIGITE OS NUMEROS COM ESPAÇOS EX: 10 20 30 40           
+"></textarea>
+                <br><button class="btn btn-lg btn-primary" type="button" name="submit" value="Enviar" onclick="botao(this.form),total()">Enviar</button>
+            </form>
+        </div>
+        <div>
+            <h2>Selecione as Medidas: </h2>
+            <label for="">Quartil(Q):</label>
+            <select id="C_quartil" onchange="casosQuartil(vetor)">
+                <option value="zero"></option>
+                <option value="Q1">Quartil 1</option>
+                <option value="Q2">Quartil 2</option>
+                <option value="Q3">Quartil 3</option>
+                <option value="Q4">Quartil 4</option>
+            </select>
+            <br><br>
+            <label for="">Quintil(K):</label>
+            <select id="C_quintil" onchange="casosQuintil(vetor)">
+                <option value=" zero"></option>
+                <option value="K1">Quintil 1</option>
+                <option value="K2">Quintil 2</option>
+                <option value="K3">Quintil 3</option>
+                <option value="K4">Quintil 4</option>
+                <option value="K5">Quintil 5</option>
+            </select>
+            <br><br>
+            <label for="">Decil(D):</label>
+            <select id="C_Decil" onchange="casosDecil(vetor)">
+                <option value="zero"></option>
+                <option value="D1">Decil 1</option>
+                <option value="D2">Decil 2</option>
+                <option value="D3">Decil 3</option>
+                <option value="D4">Decil 4</option>
+                <option value="D5">Decil 5</option>
+                <option value="D6">Decil 6</option>
+                <option value="D7">Decil 7</option>
+                <option value="D8">Decil 8</option>
+                <option value="D9">Decil 9</option>
+                <option value="D10">Decil 10</option>
+            </select>
+            <br><br>
+            <label>Percentil(P):</label>
+            <input id="input_p" size=3 onchange="casosPercentil(vetor)">
+            <button onclick="chamarSeparatrizes(vetor)">Enviar</button>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!------------------------------------------------------------------------------- -->
+    <hr>
+    <span style="color: rgb(255, 0, 0);">
+        <blink>
+            <div id="resultado"></div>
+        </blink>
+    </span>
+
+</body>
+
+</html>

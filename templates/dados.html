@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-  <title>Easy Statics</title>
+  <title>Easy Statistics</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
 
   <style>
     .tabela{
-      height: 700px;
+      height: 1000px;
     }
   </style>
 
@@ -48,7 +48,7 @@
 <body>
   <!-- Navegador da página -->
   <nav class="navegador" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statics</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statistics</a>
 
     </div>
   </nav>
@@ -109,41 +109,65 @@
         </tbody>
       </table>
 
-      <!-- Quartil -->
-      <a class='dropdown-trigger btn' data-target='dropdown1'>Quartil</a>
-      <!-- Dropdown Structure -->
-      <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="#!">one</a></li>
-        <li><a href="#!">two</a></li>
-        <li class="divider" tabindex="-1"></li>
-        <li><a href="#!">three</a></li>
-        <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-        <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-      </ul>
+      <br>
 
-      <!-- Quintil -->
-      <a class='dropdown-trigger1 btn' data-target='dropdown2'>Quintil</a>
-      <!-- Dropdown Structure -->
-      <ul id='dropdown2' class='dropdown-content'>
-        <li><a href="#!">one</a></li>
-        <li><a href="#!">two</a></li>
-        <li class="divider" tabindex="-1"></li>
-        <li><a href="#!">three</a></li>
-        <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-        <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-      </ul>
+      <h5 class="header center light-blue-text text-lighten-1">Medidas Separatrizes</h5>
+      <div class="input-field col s6">
 
-      <!-- Decil -->
-      <a class='dropdown-trigger2 btn' data-target='dropdown3'>Decil</a>
-      <!-- Dropdown Structure -->
-      <ul id='dropdown3' class='dropdown-content'>
-        <li><a href="#!">one</a></li>
-        <li><a href="#!">two</a></li>
-        <li class="divider" tabindex="-1"></li>
-        <li><a href="#!">three</a></li>
-        <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-        <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-      </ul>
+        <!-- Quartil -->
+        <select class="input-field" id="C_quartil" onchange="casosQuartil(vetor)">
+          <option value=" zero" disabled selected>Quartil(Q):</option>
+
+          <option value="Q1">Quartil 1</option>
+          <option value="Q2">Quartil 2</option>
+          <option value="Q3">Quartil 3</option>
+          <option value="Q4">Quartil 4</option>
+        </select>
+
+        <!-- Quintil -->
+        <select class="input-field" id="C_quintil" onchange="casosQuintil(vetor)">
+          <option value=" zero" disabled selected>Quintil(K):</option>
+          <option value="K1">Quintil 1</option>
+          <option value="K2">Quintil 2</option>
+          <option value="K3">Quintil 3</option>
+          <option value="K4">Quintil 4</option>
+          <option value="K5">Quintil 5</option>
+
+        </select>
+
+        <!-- Decil -->
+        <select class="input-field" id="C_Decil" onchange="casosDecil(vetor)">
+          <option value=" zero" disabled selected>Decil(D):</option>
+
+          <option value="D1">Decil 1</option>
+          <option value="D2">Decil 2</option>
+          <option value="D3">Decil 3</option>
+          <option value="D4">Decil 4</option>
+          <option value="D5">Decil 5</option>
+          <option value="D6">Decil 6</option>
+          <option value="D7">Decil 7</option>
+          <option value="D8">Decil 8</option>
+          <option value="D9">Decil 9</option>
+          <option value="D10">Decil 10</option>
+
+        </select>
+
+        <!-- Porcentil -->
+        <div>
+          <input id="input_p" onchange="casosPercentil(vetor)" class="validate">
+          <label class="active" for="nome">Porcentil(P)</label>
+          <br><br>
+          <a onclick="chamarSeparatrizes(vetor)" class="btn-large waves-effect waves-light light-blue lighten-1">Enviar</a>
+        </div>
+      </div>
+
+      <span style="color: rgb(255, 0, 0);">
+        <blink>
+          <div id="resultado"></div>
+        </blink>
+      </span>
+
+
 
     </div>
 
@@ -195,7 +219,7 @@
 
               <div class="row">
                 <div class="input-field col s3">
-                  <input type="text" name="campo" id="Total_N" class="validate">
+                  <input type="text" name="campo" id="totalBino_N" class="validate">
                   <label class="active" for="nome">Tamanho(N)</label>
                 </div>
 
@@ -375,6 +399,7 @@
   <script type="text/javascript" src="../script/Qualitativa.js"></script>
   <script type="text/javascript" src="../script/dis_binomial.js"></script>
   <script type="text/javascript" src="../script/dis_uniforme.js"></script>
+  <script src="../script/separatrizes.js"></script>
 
 
   <!--
