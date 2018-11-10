@@ -1,9 +1,9 @@
 //Variaveis
-let Xindependente = sessionStorage.getItem('vet100');
+let Xindependente = sessionStorage.getItem('vet100x');
 console.log(Xindependente)
 let Ydependente = sessionStorage.getItem('vet200');
 let teste = []
-let contadorVetor = Xindependente.length
+
 //Função somatoria
 function Somatoria(vet) {
     let soma = 0;
