@@ -191,10 +191,10 @@
 
         <!-- Porcentil -->
         <div>
-          <input id="input_p" class="validate">
+          <input id="input_p" class="validate" onchange="casoPercentil(vetor)">
           <label class="active" for="nome">Porcentil(P)</label>
           <br><br>
-          <a onclick="casosPercentil(vetor)" class="btn-large waves-effect waves-light light-blue lighten-1">Enviar</a>
+          <a onclick="chamarSeparatrizes(vetor)" class="btn-large waves-effect waves-light light-blue lighten-1">Enviar</a>
         </div>
       </div>
 
@@ -439,7 +439,7 @@
   <script type="text/javascript" src="../script/Qualitativa.js"></script>
   <script type="text/javascript" src="../script/dis_binomial.js"></script>
   <script type="text/javascript" src="../script/dis_uniforme.js"></script>
-  <script src="../script/separatrizes.js"></script>
+  <script type="text/javascript" src="../script/separatrizes.js"></script>
 
 
   <!--
