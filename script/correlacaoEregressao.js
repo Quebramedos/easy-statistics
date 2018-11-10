@@ -5,7 +5,7 @@ let Xindependente =[]
 console.log(Xindependente)
 let Ydependente = []
  Ydependente= parseFloat(sessionStorage.getItem('vet200'));
-let teste = []
+
 
 //Função somatoria
 function Somatoria(vet) {
