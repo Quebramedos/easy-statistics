@@ -1,6 +1,6 @@
 function vet(Xindependente, dependente) {
     // Objeto para bolinhas
-    for (let i = 0; i < contadorVetor; i++) {
+    for (let i = 0; i < Xindependente.length; i++) {
         //parametros para as bolinhas
         teste[i] = (([Xindependente[i], Ydependente[i]]))
     }
