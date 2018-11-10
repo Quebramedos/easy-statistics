@@ -23,6 +23,7 @@ function leCSV(evt) {
     }
     meioVetor = vet100.length / 2
     // console.log(vet100)
+    vet100x = vet100.slice(0, meioVetor)
     vet200 = vet100.slice(meioVetor, vet100.length)
     console.log(vet100)
     window.sessionStorage.setItem("vet200", vet200);
