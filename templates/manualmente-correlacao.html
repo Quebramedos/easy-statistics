@@ -20,6 +20,24 @@
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
+<script>
+  function botao() {
+    str = document.getElementById("textarea1").value
+  
+    vet100 = str.split(' ');
+
+    if (isNaN(vet100[1])) {
+      vet100 = vet100.map(String);
+
+    } else {
+      vet100 = vet100.map(Number);
+    }
+    console.log(vet100)
+    window.sessionStorage.setItem("vet100", vet100);
+    window.location.href = "dados-correlacao.html";
+  }
+</script>
+
 
 <body>
   <nav class="navegador" role="navigation">
@@ -73,7 +91,7 @@
 
       <!-- Botão de confirmação dos dados -->
       <div class="row center">
-        <a id="download-button" href="dados-correlacao.html" lass="btn-large waves-effect waves-light light-blue lighten-1">CONFIRMAR</a>
+        <a id="download-button" onclick="botao()" href="dados-correlacao.html" lass="btn-large waves-effect waves-light light-blue lighten-1">CONFIRMAR</a>
       </div>
     </div>
   </div>

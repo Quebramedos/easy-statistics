@@ -17,11 +17,51 @@
   <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
   <style>
-    .tabela{
+    .tabela {
       height: 1000px;
     }
   </style>
 
+
+  <script>
+    vet(Xindependente, Ydependente)
+    let Y
+    let X
+
+    function formulaReta() {
+      console.log('demanda' + regressao(100))
+      console.log('r: ' + Correlacao())
+      X = parseFloat(document.getElementById('x').value)
+      Y = parseFloat(document.getElementById('y').value)
+
+      if (X != 0) {
+        demanda(X)
+        let saida = ('Y vai ser igual: ' + demanda(X))
+        //saida da resposta
+        document.getElementById("saidaFormula").innerHTML = saida
+        //zera x
+        document.getElementById('form').reset()
+
+      } else if (Y != 0) {
+        PrecoDemanda(Y)
+        let saida = ('X vai ser igual: ' + PrecoDemanda(Y))
+        //saida da resposta
+        document.getElementById("saidaFormula").innerHTML = saida
+        //zera x
+        document.getElementById('form').reset()
+      };
+
+      // variavel preço PrecoDemanda(Y)
+
+
+      return X, Y
+
+    }
+//('A demanda será de ' + demanda(X))
+//('<br>');
+//('O preço será de ' + PrecoDemanda(Y) + ' em relação a demanda')
+    //  outroGrafico()
+  </script>
 </head>
 
 
@@ -56,7 +96,7 @@
           <br><br>
 
         </div>
-        
+
         <!-- Valor de Y -->
         <div class="col s3">
           <input id="input_Y" class="validate">
@@ -92,17 +132,10 @@
   <script src="../js/materialize.js"></script>
   <script src="../js/init.js"></script>
 
-  <script type="text/javascript" src="..\script\Senso.js"></script>
-  <script type="text/javascript" src="../script/dis_normal.js"></script>
-  <script type="text/javascript" src="../script/tabelanormal.js"></script>
-  <script type="text/javascript" src="../script/validacaoDaTabela.js"></script>
-  <script type="text/javascript" src="../script/Continua.js"></script>
-  <script type="text/javascript" src="../script/Discreta.js"></script>
-  <script type="text/javascript" src="../script/graficos.js"></script>
-  <script type="text/javascript" src="../script/Qualitativa.js"></script>
-  <script type="text/javascript" src="../script/dis_binomial.js"></script>
-  <script type="text/javascript" src="../script/dis_uniforme.js"></script>
-  <script src="../script/separatrizes.js"></script>
+
+  <script src="../script/highcharts-regression.js"></script>
+  <script src="../script/correlacaoEregressao.js"></script>
+  <script src="../script/graficoDispercao.js"></script>
 
 
   <!--

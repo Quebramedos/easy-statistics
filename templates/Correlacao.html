@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="correlacaoEregressao.js"></script>
+<script src="graficoDispercao.js"></script>
+
+<!-- GRAFICO -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="highcharts-regression.js"></script>
+<script>
+    vet(Xindependente, Ydependente)
+    let Y
+    let X
+
+    function formulaReta() {
+        console.log('demanda' + regressao(100))
+        console.log('r: ' + Correlacao())
+        X = parseFloat(document.getElementById('x').value)
+        Y = parseFloat(document.getElementById('y').value)
+
+   if( X != 0){
+    demanda(X)
+    let saida = ('Y vai ser igual: ' + demanda(X))
+    //saida da resposta
+    document.getElementById("saidaFormula").innerHTML = saida
+    //zera x
+    document.getElementById('form').reset()
+
+   }else if(Y != 0){
+        PrecoDemanda(Y)
+        let saida = ('X vai ser igual: ' + PrecoDemanda(Y))
+        //saida da resposta
+        document.getElementById("saidaFormula").innerHTML = saida
+        //zera x
+        document.getElementById('form').reset()
+   };     
+       
+// variavel preço PrecoDemanda(Y)
+       
+      
+        return X, Y
+       
+    }
+//('A demanda será de ' + demanda(X))
+//('<br>');
+//('O preço será de ' + PrecoDemanda(Y) + ' em relação a demanda')
+    //  outroGrafico()
+</script>
+
+<body>
+    <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+
+    <div>
+        <p>
+
+            <form action="input" onchange="formulaReta()" id="form">
+                <div id='Formula'></div>
+                <label for="X">Digite um valor para X:</label>
+                <input type="text" id='x' size="4">
+                <label for="X">Digite um valor para Y:</label>
+                <input type="text" id='y' size="4">
+
+                <div id="saidaFormula"></div>
+            </form>
+        </p>
+    </div>
+
+
+</body>
+
+</html>
