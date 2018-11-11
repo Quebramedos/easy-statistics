@@ -1,11 +1,13 @@
 let Q = 0
+let somador = parseFloat(sessionStorage.getItem('SomaFiDiscreta'))
 
 function separatrizes(parametro, vet, medida) {
     // calculo porcentagem
     for (let i = 0; i < vet.length; ++i) {
-        Q = (somatoriaFi * parametro) / 100;
+        Q = (somador * parametro) / 100;
+
         if (Q <= vet[i].somaVariavel) { //pesquisa o objeto e acha o lugar
-            return resposta = ('<h5>' + medida + '(' + Q + ')' +
+            return resposta = ('<h5>' + medida + '(' + vet[i].variavelPesquisada + ')' +
                 vet[i].posiçao + "ºPosição" + '</h5>');
         }
         resposta = ''
