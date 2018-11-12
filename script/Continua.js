@@ -1,10 +1,11 @@
  //vetor continua
  let str = ''
 
+
  function f_continua(vet100) {
      let vetorGrafico = []
      let cont = 0
-     let vetor = []
+
      //variaveis para intevalo
      let xmax = Math.max(...vet100); //maior valor de um vetor
 
@@ -57,6 +58,7 @@
                  }
              }
          }
+         return ic
      }
      intervaloClasse()
 
@@ -69,7 +71,11 @@
          fac: '',
          classe: '',
          limMinimo: '',
-         limMaximo: ''
+         limMaximo: '',
+         somaVariavel: '',
+         intervalo: '',
+         tipo: 'Continua'
+
      }
      let aux4 = xmin
      let total = []
@@ -79,13 +85,14 @@
          vetor[i].limMaximo = total[i] //atribui o valor para o limite maximo
          vetor[i].limMinimo = vetor[i].limMaximo - ic // atribui o valor para o limite minimo
          vetorGrafico[i] = vetor[i].limMaximo //atribui para parametro
+         vetor[i].intervalo = ic
          vetor[i].PontoMedio = (vetor[i].limMinimo + vetor[i].limMaximo) / 2 // ponto medio da classe
      }; // { a: 1 }
      vetor.push(obj)
      //-----------------------------------------------------------------
      aux4 = xmin
      //joga frequencia
-     for (let x = 0; x < vetor.length - 1; x++) {
+     for (let x = 0; x < vetor.length; x++) {
          cont = 0
          for (let y = vet100.length; y >= 0; y--) {
              if ((vet100[y] < vetor[x].limMaximo) && (vet100[y] >= vetor[x].limMinimo)) {
@@ -103,11 +110,14 @@
      function fac() {
          vet3[0] = vetor[0].frequencia
          aux = vetor[0].frequencia
+         let contadorfac = 1
          for (var x = 0; x < vetorGrafico.length; x++) {
-             aux += vetor[x + 1].frequencia;
-             vet3[x + 1] = aux
+             aux += vetor[contadorfac].frequencia;
+             vet3[contadorfac] = aux
              vetor[x].fac = vet3[x]
+             contadorfac++
          }
+         return
      }
      fac()
      let moda = 0
@@ -162,7 +172,6 @@
          return MoKing;
      };
      ModaKing(); // Chamando a função Moda de King
-     console.log(MoKing)
 
      //Função da moda de Cuzber
      let MoCuzber = 0;
@@ -173,10 +182,6 @@
          return MoCuzber;
      };
      ModaCuzber(); // Chamando a função de Moda de Cuzber 
-     console.log(MoCuzber);
-     console.log(moda)
-     console.log(fiAnterior)
-
 
      let MoPearson = 0;
 
@@ -230,8 +235,7 @@
      funMediana()
 
      ModaPearson()
-     console.log('Pearson' + MoPearson)
-     est = 1
+
      //-----------------------------------------------------------------
      //desvio padrao
      let coificiente = 0
@@ -244,7 +248,6 @@
              aux2 = vetor[i].PontoMedio - media // tira a media da variavel
              //desvio padrao recebe frequencia - media elevado ao quadrado
              desvioPadrao += (Math.pow(aux2, 2) * vetor[i].frequencia)
-             console.log(desvioPadrao)
          }
          //--------------------------------alerta--------------------------------------------------------
          //se for popula tira o menos 1
@@ -263,13 +266,18 @@
      function somaFi() {
          for (let i = 0; i < vetor.length; i++) {
              somatoriaFi += vetor[i].frequencia
+             vetor[i].somaVariavel = somatoriaFi
+
          }
-         window.sessionStorage.setItem("Somafi", somatoriaFi)
+         window.sessionStorage.setItem("SomaFiContinua", somatoriaFi)
+         window.sessionStorage.setItem("tipo", vetor[2].tipo)
          return somatoriaFi
      }
      //Medidas separatrizes
      somaFi();
+     console.log(vetor)
      let facP = []
+     let totalfac = 0
      //--------------------------------------------------------------------
      let tbl_tabela = ('<table class="bordered striped centered highlight responsive-table">')
      tbl_tabela += ('<tr>')
@@ -279,6 +287,8 @@
      tbl_tabela += ('</tr>')
      let contClasses = 1
      for (let linha = 0; linha < k; ++linha) {
+         vetor[linha].facPorcentagem += Math.round((vetor[linha].fac / vet100.length) * 100)
+         totalfac = Math.round(vetor[linha].facPorcentagem)
          tbl_tabela += ('<tr>')
          //primeira coluna classe
          tbl_tabela += ('<td>' + contClasses + '</td>')
@@ -300,32 +310,13 @@
          tbl_tabela += ('</tr>')
          contClasses++
      }
+     tbl_tabela += ('<tr><td><b>' + 'Total: ' + vetor[vetor.length - 1].somaVariavel + '</td>' + '<td><b>' + vetor[1].intervalo +
+         '</td>')
+     tbl_tabela += ('<td><b>' + somatoriaFi + '</td>' + '<td><b>' + somatoriaFi + '%' + '</td><td>' + " " + '</td>')
      tbl_tabela += ('</table>')
      document.getElementById("outTabela").innerHTML = tbl_tabela
      //---------------------------------------------------------------------------
      //resultados
-     let tbl_resul = ('<table align = center class=" thead-dark table table-striped table-bordered">>')
-     tbl_resul += ('<h3 align = center>RESULTADOS</h3>')
-     tbl_resul += ('<tr>')
-     tbl_resul += (
-         '<th>Media(x)</th><th>Moda(Mo)</th><th>Mediana(Md)</th><th>Desvio Padrao(dx)</th><th>Coificiente Padrão</th><th>Moda de King</th><th>Moda de Czuber</th><th>Moda de Pearson</th>'
-     )
-     tbl_resul += ('</tr>') //primeira linha
-     tbl_resul += ('<tr>')
-     //primeira coluna
-     tbl_resul += ('<td>' + media + '</td><td>' + moda + '</td>')
-     //terceira coluna
-     tbl_resul += ('<td>' + mediana + '</td>')
-     //quarta coluna
-     tbl_resul += ('<td>' + desvioPadrao.toFixed(2) + '</td>')
-     tbl_resul += ('<td>' + coificiente + '%' + '</td>')
-     tbl_resul += ('<td>' + MoKing + '</td>')
-     tbl_resul += ('<td>' + MoCuzber + '</td>')
-     tbl_resul += ('<td>' + MoPearson + '</td>')
-     tbl_resul += ('</tr>')
-     tbl_resul += ('</table>')
-     //document.getElementById("outResul").innerHTML = tbl_resul
-
      document.getElementById("moda").innerHTML = moda;
      document.getElementById("media").innerHTML = media.toFixed(2);
      document.getElementById("mediana").innerHTML = mediana;
@@ -335,8 +326,9 @@
      document.getElementById("modaCuzber").innerHTML = MoCuzber;
      document.getElementById("modaPearson").innerHTML = MoPearson;
 
+     // enche o grafico
      vetorGrafico.unshift(vet100[0])
      grafico2.push('')
      graficoContinuo(vetorGrafico, grafico2)
-
+     return vetor
  }
