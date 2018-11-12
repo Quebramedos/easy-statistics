@@ -21,19 +21,20 @@
 </head>
 
 <script>
-  let vet200 = []
+  var vet200 = []
+  var vet100x = []
 
   function botao() {
     str = document.getElementById("textarea1").value
     str2 = document.getElementById("textarea2").value
-    vet100x = str.split(',');
-    vet200 = str2.split(',')
+    vet100x = str.split(' ');
+    vet200 = str2.split(' ')
 
 
     window.sessionStorage.setItem("vet100x", vet100x);
     window.sessionStorage.setItem("vet200", vet200);
     window.location.href = "dados-correlacao.html";
-    return vet200
+    return vet200, vet100x
   }
 </script>
 
@@ -100,7 +101,7 @@
   </div>
   <br><br>
   <br><br>
-
+  <div id="container"></div>
   <footer class="page-footer green accent-3">
     <div class="container">
       <div class="row">
@@ -123,7 +124,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="../js/materialize.js"></script>
   <script src="../js/init.js"></script>
-
+  <script src="script\graficoDispercao.js"></script>
   <!-- Slider -->
 
 
