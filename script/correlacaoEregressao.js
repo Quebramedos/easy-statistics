@@ -1,38 +1,18 @@
 //Variaveis
 
-let teste55 = []
-let Ydependente = []
-let Xindependente = []
-
+var Ydependente = ''
+var Xindependente = ''
+var vetY = []
+var vetx = []
 Xindependente = sessionStorage.getItem('vet100x')
-Xindependente = Xindependente.replace(/,/g, ";")
-Xindependente = Xindependente.split(';')
-
 Ydependente = sessionStorage.getItem('vet200')
-Ydependente = Ydependente.replace(/,/g, ";")
-Ydependente = Ydependente.split(';')
+vetY = Ydependente.split(',').map(Number)
+vetx = Xindependente.split(',').map(Number)
 //Xindependente = parseFloat(sessionStorage.getItem('vet100x'))
+console.log(vetY)
 
-
-function convert() {
-
-
-    let cont = 0
-    /*
-    for (let i = 0; i < Xindependente.length; ++i) {
-        teste55.push(Ydependente[cont])
-        cont++
-
-    }
-
-    return teste55, Xindependente
-}
-convert()
-*/
-}
-console.log(Xindependente)
-
-console.log(Ydependente)
+vet(vetx, vetY)
+console.log(vetx)
 //Função somatoria
 function Somatoria(vet) {
     let soma = 0;
