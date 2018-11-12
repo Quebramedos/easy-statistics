@@ -181,8 +181,14 @@ function total(vet100, vetorLimpo) {
     let somatoriaFi = 0;
     let somatoriaXi = 0;
 
+    if (vetor[0].variavelPesquisada == 0) {
+        somatoriaXi += 1
+    } else {
+        somatoriaXi = 0;
+    }
+
     function somaFi() {
-        for (let i = 0; i < vetor.length; i++) {
+        for (let i = 0; i < vetor.length - 1; i++) {
             somatoriaFi += vetor[i].frequencia;
 
             somatoriaXi += vetor[i].variavelPesquisada
@@ -217,20 +223,23 @@ function total(vet100, vetorLimpo) {
         //coluna fac porcentagem
         HTML += '<td>' + (vetor[linha].facPorcentagem) + '%' + '</td>'
     }
-    HTML += ('<tr><td>' + 'Total: ' + vetor[vetor.length - 1].somaVariavel + '</td>' + '<td>' + vet100.length +
+
+
+    HTML += ('<tr><td><b>' + 'Total: ' + vetor[vetor.length - 2].somaVariavel + '</td>' + '<td><b>' + vet100.length +
         '</td>')
-    HTML += ('<td>' + totalfac + '%' + '</td>' + '<td>' + vet100.length + '</td><td>' + " " + '</td>')
-    HTML += "</tr></tbody></table>"; //fecha tabela
+    HTML += ('<td><b>' + totalfac + '%' + '</td>' + '<td><b>' + vet100.length + '</td><td>' + " " + '</td>')
+    HTML += "</b></tr></tbody></table>"; //fecha tabela
     document.getElementById("outTabela").innerHTML = HTML; //atribui no div
     //-------------------------------------------------------------------------
 
     colunas(vetorLimpo, grafico2)
-    //------------------------------------------------------------------------------
+
     document.getElementById("moda").innerHTML = moda;
     document.getElementById("media").innerHTML = media;
     document.getElementById("mediana").innerHTML = mediana;
     document.getElementById("desvio").innerHTML = desvioPadrao;
     document.getElementById("coificiente").innerHTML = coificiente;
-    //----------------------------------------------------------------------------
+
+
     return vetor
 }
