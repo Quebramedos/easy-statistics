@@ -1,12 +1,38 @@
 //Variaveis
-let Xindependente =[]
- let pegax= (sessionStorage.getItem('vet100x')
-                  Xindepentende = pegax.split(',').map(Number)
-console.log(Xindependente)
+
+let teste55 = []
 let Ydependente = []
- Ydependente= parseFloat(sessionStorage.getItem('vet200'))
+let Xindependente = []
+
+Xindependente = sessionStorage.getItem('vet100x')
+Xindependente = Xindependente.replace(/,/g, ";")
+Xindependente = Xindependente.split(';')
+
+Ydependente = sessionStorage.getItem('vet200')
+Ydependente = Ydependente.replace(/,/g, ";")
+Ydependente = Ydependente.split(';')
+//Xindependente = parseFloat(sessionStorage.getItem('vet100x'))
 
 
+function convert() {
+
+
+    let cont = 0
+    /*
+    for (let i = 0; i < Xindependente.length; ++i) {
+        teste55.push(Ydependente[cont])
+        cont++
+
+    }
+
+    return teste55, Xindependente
+}
+convert()
+*/
+}
+console.log(Xindependente)
+
+console.log(Ydependente)
 //Função somatoria
 function Somatoria(vet) {
     let soma = 0;
