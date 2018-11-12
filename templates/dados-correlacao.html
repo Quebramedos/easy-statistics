@@ -12,14 +12,15 @@
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
   <!-- GRAFICO -->
-   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="../script/correlacaoEregressao.js"></script>
+  <script src="../script/importCorrelacao.js"></script>
+  <script src="../script/correlacaoEregressao.js"></script>
   <script src="../script/graficoDispercao.js"></script>
   <script src="../script/highcharts-regression.js"></script>
-  
+
 
   <style>
     .tabela {
@@ -31,8 +32,8 @@
   <script>
 
 
- 
-//('A demanda será de ' + demanda(X))
+
+    //('A demanda será de ' + demanda(X))
 //('<br>');vet(Xindependente, Ydependente)
     let Y
     let X
@@ -86,8 +87,8 @@
     <div class="nav-wrapper green accent-3 ">
       <div class="col s12 container">
         <a href="../index.html" class="breadcrumb">Início</a>
-        <a href="inserir-dados.html" class="breadcrumb">Opções de entrada</a>
-        <a href="inserir-dados.html" class="breadcrumb">Entrada de dados</a>
+        <a href="inserir-dados-correlacao.html" class="breadcrumb">Opções de entrada</a>
+        <!-- <a href="" class="breadcrumb">Entrada de dados</a>-->
         <a class="breadcrumb">Resultados</a>
 
       </div>
@@ -95,28 +96,28 @@
   </nav>
 
   <div class="container center">
-    
-     
 
-      <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
 
-      <div>
-        <p>
 
-          <form action="input" onchange="formulaReta()" id="form">
-            <div id='Formula' class="col s16"></div>
-            <label for="X">Digite um valor para X:</label>
-            <input type="text" id='x' size="4">
-            <label for="X">Digite um valor para Y:</label>
-            <input type="text" id='y' size="4">
+    <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
 
-            <div id="saidaFormula"></div>
-          </form>
-        </p>
-      </div>
+    <div>
+      <p>
+
+        <form action="input" onchange="formulaReta()" id="form">
+          <div id='Formula' class="col s16"></div>
+          <label for="X">Digite um valor para X:</label>
+          <input type="text" id='x' size="4">
+          <label for="X">Digite um valor para Y:</label>
+          <input type="text" id='y' size="4">
+
+          <div id="saidaFormula"></div>
+        </form>
+      </p>
     </div>
   </div>
- </div>
+  </div>
+  </div>
   <!-- Rodapé -->
   <footer class="page-footer green accent-3">
     <div class="container">
@@ -137,14 +138,14 @@
   </footer>
 
   <!-- Scripts -->
-  
+
   <script src="../js/materialize.js"></script>
   <script src="../js/init.js"></script>
 
 
 
 
- 
+
   <script>
     $(document).ready(function () {
       $('.sidenav').sidenav();
