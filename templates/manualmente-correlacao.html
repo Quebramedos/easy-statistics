@@ -21,22 +21,19 @@
 </head>
 
 <script>
+  let vet200 = []
+
   function botao() {
     str = document.getElementById("textarea1").value
     str2 = document.getElementById("textarea2").value
-    vet100 = str.split(',');
+    vet100x = str.split(',');
     vet200 = str2.split(',')
 
-    if (isNaN(vet100[1])) {
-      vet100 = vet100.map(String);
 
-    } else {
-      vet100 = vet100.map(Number);
-    }
-    console.log(vet100)
-    window.sessionStorage.setItem("vet100", vet100x);
+    window.sessionStorage.setItem("vet100x", vet100x);
     window.sessionStorage.setItem("vet200", vet200);
     window.location.href = "dados-correlacao.html";
+    return vet200
   }
 </script>
 
@@ -73,7 +70,7 @@
           <!--   Icon Section   -->
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">border_color</i></h2>
-            <h4 class="center light-blue-text text-lighten-1">Inserção manual</h4>
+            <h4 class="center light-blue-text text-lighten-1">Inserção manual Correlação</h4>
             <p class="light">Você pode inserir manualmente os dados estatíscos separando os por espaço.</p>
           </div>
         </div>
@@ -87,7 +84,7 @@
               <textarea id="textarea1" class="materialize-textarea"></textarea>
               <label for="textarea1">Digite os dados para Indepentende:</label>
             </div>
-              <div class="input-field col s12">
+            <div class="input-field col s12">
               <textarea id="textarea2" class="materialize-textarea"></textarea>
               <label for="textarea1">Digite os dados para dependente:</label>
             </div>
@@ -126,9 +123,9 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="../js/materialize.js"></script>
   <script src="../js/init.js"></script>
-  <script type="text/javascript" src="..\script\Senso.js"></script>
+
   <!-- Slider -->
-  <script type="text/javascript" src="..\script\src\nouislider.js"></script>
+
 
 </body>
 
