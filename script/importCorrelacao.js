@@ -21,7 +21,6 @@ function leCSVcorrelacao(evt) {
         fileArr[i] = fileArr[i].replace(/,/g, ".")
         //limpa a string e  joga no vetor
         vet100[i] = (fileArr[i].split(';')).map(Number)
-        alert(vet100)
     }
     meioVetor = vet100.length / 2
     // console.log(vet100)
