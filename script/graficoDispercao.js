@@ -1,10 +1,10 @@
-let teste = []
+var teste = []
 
-function vet(vetx, dependente) {
+function vet(Xindependente, dependente) {
     // Objeto para bolinhas
-    for (let i = 0; i < vetx.length; i++) {
+    for (let i = 0; i < Xindependente.length; i++) {
         //parametros para as bolinhas
-        teste[i] = (([vetx[i], vetY[i]]))
+        teste[i] = (([Xindependente[i], Ydependente[i]]))
     }
     return teste
 }
