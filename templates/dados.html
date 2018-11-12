@@ -29,6 +29,9 @@
 
 
   vet100 = vet100.split(',');
+  if (vet100[vet100.length - 1] == 0) {
+    vet100.pop()
+  }
   if (isNaN(vet100[1])) {
     vet100 = vet100.map(String);
 
