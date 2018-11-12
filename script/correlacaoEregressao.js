@@ -1,17 +1,17 @@
 //Variaveis
 
-var Ydependente = ''
-var Xindependente = ''
-var vetY = []
-var vetx = []
-Xindependente = sessionStorage.getItem('vet100x')
-Ydependente = sessionStorage.getItem('vet200')
-vetY = Ydependente.split(',').map(Number)
-vetx = Xindependente.split(',').map(Number)
+var Ydependente = []
+var Ydependente = []
+var vety = ''
+var vetx = ''
+vetx = sessionStorage.getItem('vet100x')
+vety = sessionStorage.getItem('vet200')
+Ydependente = vety.split(',').map(Number)
+Xindependente = vetx.split(',').map(Number)
 //Xindependente = parseFloat(sessionStorage.getItem('vet100x'))
-console.log(vetY)
+console.log(vety)
 
-vet(vetx, vetY)
+vet(Xindependente, Ydependente)
 console.log(vetx)
 //Função somatoria
 function Somatoria(vet) {
