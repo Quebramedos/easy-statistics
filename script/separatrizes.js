@@ -5,12 +5,14 @@ function separatrizes(parametro, vet, medida) {
     // calculo porcentagem
     for (let i = 0; i < vet.length; ++i) {
         Q = (somador * parametro) / 100;
-
-        if (Q <= vet[i].somaVariavel) { //pesquisa o objeto e acha o lugar
+        console.log(Q)
+        if (Q <= vet[i].fac) { //pesquisa o objeto e acha o lugar
             return resposta = ('<h5>' + medida + '(' + vet[i].variavelPesquisada + ')' +
-                vet[i].posiçao + "ºPosição" + '</h5>');
+                vet[i].posiçao + "ºPosição" + '</h5>')
         }
-        resposta = ''
+
+
+
     }
 }
 let Quartil = 'Quartil'
