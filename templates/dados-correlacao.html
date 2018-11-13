@@ -103,18 +103,18 @@
   <div class="row">
     <!-- Campos X e Y -->
     <div class="col s12 m4 l3">
-      <br>
-      <form action="input" onchange="formulaReta()" id="form">
-        <div id='Formula'></div>
-        
-        <label for="X">Digite um valor para X:</label>
-        <input type="text" id='x'>
-        
-        <label for="Y">Digite um valor para Y:</label>
-        <input type="text" id='y'>
+             <form action="input" id="form" onchange="formulaReta()">
 
-        <div id="saidaFormula"></div>
-      </form>
+                <!--div da formula-->
+                <div id='Formula'></div>
+                <label for="">Digite um valor para:</label>
+                <select name="XeY" id="combo">
+                    <option value="X">X</option>
+                    <option value="Y">Y</option>
+                </select>
+                <input type="text" id="XeY">
+                <div id="saidaFormula"></div>
+            </form>
     </div>
 
     <!-- Tabela de correlação -->
