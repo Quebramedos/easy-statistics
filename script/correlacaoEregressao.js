@@ -60,10 +60,10 @@ function Correlacao() {
     } else if (r <= 0.6 && r <= 1) {
         fracaForte = 'Correlação média a forte'
     }
-    document.getElementById('Linha').innerHTML = fracaForte
+    
     console.log(fracaForte)
     console.log('Porcentagem da relação ' + porcent + '%')
-    return r
+    return r,document.getElementById('Linha').innerHTML = fracaForte
 }
 Correlacao()
 let b = 0
