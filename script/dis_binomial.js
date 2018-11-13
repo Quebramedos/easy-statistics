@@ -86,9 +86,10 @@ function casos() {
             break;
             //-------------------------------------------------------------------
         case "P_menos":
-            totalBino(k, n) //passa o parametro k como inicial, ate n
+          totalBino(k, n) //passa o parametro 0 como inicial ate k
             resposta = ('<h2>' + 'Resultado:' + '<br>' +
                 soma.toFixed(2) + '%' + '</h2>')
+            console.log(resposta)
             document.getElementById("resultadoB").innerHTML = resposta
             //-----------------------------------------------------------------------
         case "Ate":
