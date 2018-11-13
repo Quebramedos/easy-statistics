@@ -1,5 +1,5 @@
 //Variaveis
-
+var fracaForte=''
 var Ydependente = []
 var Ydependente = []
 var vety = ''
@@ -52,7 +52,7 @@ function Correlacao() {
     let divisor = ((Xindependente.length) * SomatoriaQuadrado(Xindependente) - (Math.pow(Somatoria(Xindependente), 2))) * ((Xindependente.length) * SomatoriaQuadrado(Ydependente) - (Math.pow(Somatoria(Ydependente), 2)))
     r = parseFloat((dividendo / Math.sqrt(divisor)).toFixed(2))
     let porcent = r * 100
-    let fracaForte;
+    
     if (r > 0 && r < 0.3) {
         fracaForte = 'Correlação inexistente ou fraca'
     } else if (r >= 0.3 && r < 0.6) {
@@ -65,7 +65,7 @@ function Correlacao() {
     console.log('Porcentagem da relação ' + porcent + '%')
     return r
 }
-
+Correlacao()
 let b = 0
 let a = 0
 //Função da regreção
