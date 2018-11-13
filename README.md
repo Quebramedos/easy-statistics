@@ -1,4 +1,4 @@
-# easy-statistics
+# Easy Statistics
 Easy statistics
 CENTRO PAULA SOUZA
 FACULDADE DE TECNOLOGIA DE FRANCA 
