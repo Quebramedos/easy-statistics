@@ -60,6 +60,7 @@ function Correlacao() {
     } else if (r <= 0.6 && r <= 1) {
         fracaForte = 'Correlação média a forte'
     }
+    document.getElementById('Linha').innerHTML = fracaForte
     console.log(fracaForte)
     console.log('Porcentagem da relação ' + porcent + '%')
     return r
@@ -93,8 +94,9 @@ function demanda(x) {
 
     // valor de Y
     let demanda = ((a * x) + b).toFixed(2)
-    teste.push([X, demanda])
-    contadorVetor++
+    Xindependente.push(x)
+    Ydependente.push(demanda)
+  
     vet(Xindependente, Ydependente)
     return demanda
 }
@@ -103,7 +105,8 @@ function demanda(x) {
 function PrecoDemanda(y) {
     // valor de X
     let pre = parseFloat((b - y) / (-1 * a).toFixed(2))
-    teste.push([pre, y])
+    Xindependente.push(pre)
+    Ydependente.push(y)
     vet(Xindependente, Ydependente)
     return pre
 }
