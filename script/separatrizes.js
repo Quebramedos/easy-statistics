@@ -1,6 +1,6 @@
 let Q = 0
-let somador = parseFloat(sessionStorage.getItem('SomaFiDiscreta'))
-let tipo = sessionStorage.getItem('tipo')
+var somador = parseFloat(sessionStorage.getItem('SomaFiDiscreta'))
+var tipo = sessionStorage.getItem('tipo')
 
 
 function formulaContinua(vet, porcentagem, somador, medida) {
@@ -14,8 +14,8 @@ function formulaContinua(vet, porcentagem, somador, medida) {
                 formula = vet[i].limMinimo + (((posicao - vet[i - 1].fac) / vet[i].frequencia) * vet[i].intervalo)
                 console.log('form: ' + formula)
                 console.log('LM: ' + vet[i].intervalo)
-                return resposta = ('<h5>' + medida + '(' + formula.toFixed(1) + ')' +
-                    vet[i].classe + "ºClasse" + '</h5>')
+                return resposta = ('<h5>' + medida + '(' + formula.toFixed(2) + ')' +
+                    vet[i].fac + "ºPosição" + '</h5>')
             }
         }
     }
@@ -30,7 +30,7 @@ function separatrizes(parametro, vet, medida) {
         console.log(Q)
         if (Q <= vet[i].fac) { //pesquisa o objeto e acha o lugar
             return resposta = ('<h5>' + medida + '(' + vet[i].variavelPesquisada + ')' +
-                vet[i].posiçao + "ºPosição" + '</h5>')
+                vet[i].fac + "ºPosição" + '</h5>')
         }
     }
 }
@@ -242,6 +242,8 @@ function casoPercentil(valor) {
                 document
                 */
 }
+
+
 
 function chamarSeparatrizes(vetor) {
     casosQuartil(vetor);
