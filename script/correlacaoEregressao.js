@@ -65,7 +65,7 @@ function Correlacao() {
     console.log('Porcentagem da relação ' + porcent + '%')
     return r,document.getElementById('Linha').innerHTML = fracaForte
 }
-Correlacao()
+
 let b = 0
 let a = 0
 //Função da regreção
