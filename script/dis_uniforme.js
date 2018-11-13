@@ -3,9 +3,9 @@ let max
 let media
 let desvio
 let resultado
-let parametro
+var parametro
 let diff
-let ate
+var ate
 //-----------------------------------------------------------
 
 function padrao(a, b) {
@@ -46,24 +46,24 @@ function casosU() {
         case "maior_Q":
             diferença(max, parametro) // valor maximo - o parametro
             probabilidade(min, max, diff) //chama funçao para calculo
-            respostaU = ('<h2>' + 'resultado:' + '<br>' +
-                resultado.toFixed(2) + '%' + '</h2>')
+            respostaU = ('<h3>' + 'Resultado:' + '<br>' +
+                resultado.toFixed(2) + '%' + '</h3>')
             document.getElementById("resultadoU").innerHTML = respostaU //joga respostaU no documento
             break;
         case "menor_Q":
             diferença(parametro, min) // vai pégar o valor da diferença
             probabilidade(min, max, diff) //chama funçao para calculo
-            respostaU = ('<h2>' + 'resultadotado:' + '<br>' +
-                resultado.toFixed(2) + '%' + '</h2>')
-            document.getElementById("resultadotadoU").innerHTML = respostaU
+            respostaU = ('<h3>' + 'Resultado:' + '<br>' +
+                resultado.toFixed(2) + '%' + '</h3>')
+            document.getElementById("resultadoU").innerHTML = respostaU
             break;
             //--------------------------------------------------------------------------
         case "Entre":
             diferença(ate, parametro) // vai pégar o valor da diferença
             probabilidade(min, max, diff) //chama funçao para calculo
-            respostaU = ('<h2>' + 'resultadotado:' + '<br>' +
-                resultado.toFixed(2) + '%' + '</h2>')
-            document.getElementById("resultadotado").innerHTML = respostaU
+            respostaU = ('<h3>' + 'Resultado:' + '<br>' +
+                resultado.toFixed(2) + '%' + '</h3>')
+            document.getElementById("resultadoU").innerHTML = respostaU
             break;
         default:
     }
