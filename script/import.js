@@ -24,6 +24,6 @@ function leCSV(evt) {
     return vet100 // retorna o vetor 
 }
 console.log(vet100)
-   /*
-     <input type="file" id="inputCSV" onchange="pegaCSV(this)">
-   */
+/*
+  <input type="file" id="inputCSV" onchange="pegaCSV(this)">
+*/

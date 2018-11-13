@@ -1,8 +1,18 @@
 //Variaveis
-let Xindependente = [33, 25, 24, 18, 12];
-let Ydependente = [300, 400, 500, 600, 700];
-let teste = []
-let contadorVetor = Xindependente.length
+
+var Ydependente = []
+var Ydependente = []
+var vety = ''
+var vetx = ''
+vetx = sessionStorage.getItem('vet100x')
+vety = sessionStorage.getItem('vet200')
+Ydependente = vety.split(',').map(Number)
+Xindependente = vetx.split(',').map(Number)
+//Xindependente = parseFloat(sessionStorage.getItem('vet100x'))
+console.log(vety)
+
+vet(Xindependente, Ydependente)
+console.log(vetx)
 //Função somatoria
 function Somatoria(vet) {
     let soma = 0;

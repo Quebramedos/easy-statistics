@@ -120,7 +120,7 @@ function graficoContinuo(vet, vet2) {
         xAxis: {
             categories: vet,
             labels: {
-                x: -80,
+                x: -49,
                 y: 18,
             },
             title: {

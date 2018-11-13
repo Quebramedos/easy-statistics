@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -26,9 +26,12 @@
 
 <script type="text/javascript">
   vet100 = window.sessionStorage.getItem("vet100");
-
+var vetor=[]
 
   vet100 = vet100.split(',');
+  if (vet100[vet100.length - 1] == 0) {
+    vet100.pop()
+  }
   if (isNaN(vet100[1])) {
     vet100 = vet100.map(String);
 
@@ -43,43 +46,6 @@
     limpa(vet100);
     teste();
   }
-
-  // Medidas separatrizes
-  let somatoriaFi = 0
-  //let resposta
-  // pra pegar do input
-
-  /// vetor de parametro
-  let vetor = []
-
-  let obj = {
-    variavelPesquisada: '',
-    somaVariavel: '',
-    posiçao: ''
-  }
-  let posi = 1
-  // atribui o objeto para as copias
-  for (let i = 0; i < vet100.length; ++i) {
-    vetor[i] = Object.assign({}, obj);
-    vetor[i].variavelPesquisada = vet100[i]
-    vetor[i].posiçao = posi
-    posi++
-  } // { a: 1 } 
-
-  // soma variavel
-  for (let i = 0; i < vet100.length; i++) {
-    somatoriaFi += vetor[i].variavelPesquisada
-    vetor[i].somaVariavel = somatoriaFi
-  }
-
-
-  console.log(vetor)
-  console.log('Soma de tudo: ' + somatoriaFi)
-</script>
-
-<script>
-
-
 </script>
 
 <body>
@@ -153,7 +119,7 @@
 
         <!-- Quartil -->
         <select class="input-field" id="C_quartil" onchange="casosQuartil(vetor)">
-          <option value=" zero" disabled selected>Quartil(Q):</option>
+          <option value="zero" disabled selected>Quartil(Q):</option>
 
           <option value="Q1">Quartil 1</option>
           <option value="Q2">Quartil 2</option>
@@ -163,7 +129,7 @@
 
         <!-- Quintil -->
         <select class="input-field" id="C_quintil" onchange="casosQuintil(vetor)">
-          <option value=" zero" disabled selected>Quintil(K):</option>
+          <option value="zero" disabled selected>Quintil(K):</option>
           <option value="K1">Quintil 1</option>
           <option value="K2">Quintil 2</option>
           <option value="K3">Quintil 3</option>
@@ -174,7 +140,7 @@
 
         <!-- Decil -->
         <select class="input-field" id="C_Decil" onchange="casosDecil(vetor)">
-          <option value=" zero" disabled selected>Decil(D):</option>
+          <option value="zero" disabled selected>Decil(D):</option>
 
           <option value="D1">Decil 1</option>
           <option value="D2">Decil 2</option>
@@ -306,7 +272,7 @@
 
             </div>
           </div>
-          
+
           <!-- Distribuição Normal -->
           <div id="dis_normal">
 
@@ -324,9 +290,6 @@
                     <input type="text" id="desvioPadraoN" class="validate">
                     <label class="active" for="nome">Digite o desvio padrão</label>
                   </div>
-
-
-
 
                 </div>
                 <div class="input-field col s3">
@@ -353,7 +316,6 @@
               </form>
 
 
-
             </div>
             <div class="row">
               <div class="col s3">
@@ -363,11 +325,7 @@
               <div id="resultadoN" class="col s9">
                 <h5 class="header center light-blue-text text-lighten-1">Resultado:</h5>
               </div>
-
             </div>
-
-
-
           </div>
 
 
@@ -447,11 +405,11 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="../js/materialize.js"></script>
   <script src="../js/init.js"></script>
 
-  <script type="text/javascript" src="..\script\Senso.js"></script>
+  <script type="text/javascript" src="../script/Senso.js"></script>
   <script type="text/javascript" src="../script/dis_normal.js"></script>
   <script type="text/javascript" src="../script/tabelanormal.js"></script>
   <script type="text/javascript" src="../script/validacaoDaTabela.js"></script>

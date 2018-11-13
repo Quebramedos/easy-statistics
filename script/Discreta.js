@@ -4,7 +4,7 @@ function total(vet100, vetorLimpo) {
 
     //  let vetorLimpo = [] //vetor sem repetiçoes
     let cont = 0 //para contar variaveis
-    let vetor = [] //vetor de objetos
+    //  let vetor = [] //vetor de objetos
     let maior = 0 //maior frequencia
     let moda = 0
     //organiza o vetor
@@ -179,13 +179,22 @@ function total(vet100, vetorLimpo) {
 
     //CALCULA A O TOTAL DE fi
     let somatoriaFi = 0;
+    let somatoriaXi = 0;
+
+    if (vetor[0].variavelPesquisada == 0) {
+        somatoriaXi += 1
+    } else {
+        somatoriaXi = 0;
+    }
 
     function somaFi() {
-        for (let i = 0; i < vetor.length; i++) {
-            somatoriaFi += vetor[i].variavelPesquisada;
-            vetor[i].somaVariavel = somatoriaFi
+        for (let i = 0; i < vetor.length - 1; i++) {
+            somatoriaFi += vetor[i].frequencia;
+
+            somatoriaXi += vetor[i].variavelPesquisada
+            vetor[i].somaVariavel = somatoriaXi
         }
-        window.sessionStorage.setItem("SomaFI", somatoriaFi)
+        window.sessionStorage.setItem("SomaFiDiscreta", somatoriaFi)
         return somatoriaFi
     }
     somaFi();
@@ -214,32 +223,15 @@ function total(vet100, vetorLimpo) {
         //coluna fac porcentagem
         HTML += '<td>' + (vetor[linha].facPorcentagem) + '%' + '</td>'
     }
-    HTML += ('<tr><td>' + 'Total: ' + vetor[vetor.length - 1].somaVariavel + '</td>' + '<td>' + vet100.length +
+
+
+    HTML += ('<tr><td><b>' + 'Total: ' + vetor[vetor.length - 2].somaVariavel + '</td>' + '<td><b>' + vet100.length +
         '</td>')
-    HTML += ('<td>' + totalfac + '%' + '</td>' + '<td>' + vet100.length + '</td><td>' + " " + '</td>')
-    HTML += "</tr></tbody></table>"; //fecha tabela
+    HTML += ('<td><b>' + totalfac + '%' + '</td>' + '<td><b>' + vet100.length + '</td><td>' + " " + '</td>')
+    HTML += "</b></tr></tbody></table>"; //fecha tabela
     document.getElementById("outTabela").innerHTML = HTML; //atribui no div
     //-------------------------------------------------------------------------
-    //resultados------------------------------------------------------------------
-    var tbl_resul = "<table align=center    > <tr>";
-    tbl_resul += ('<h3 align = center>RESULTADOS</h3>')
-    tbl_resul += ('<table align = center class="tabela">')
-    tbl_resul += ('<tr>')
-    tbl_resul += (
-        '<td>Media(x)</td><td>Moda(Mo)</td><td>Mediana(Md)</td><td>Desvio Padrao(dx)</td><td>Coificiente Padrão</td>'
-    )
-    tbl_resul += ('</tr>') //primeira linha
-    tbl_resul += ('<tr>')
-    //primeira coluna
-    tbl_resul += ('<td>' + media + '</td><td>' + moda + '</td>')
-    //terceira coluna
-    tbl_resul += ('<td>' + mediana + '</td>')
-    //quarta coluna
-    tbl_resul += ('<td>' + desvioPadrao + '</td>')
-    tbl_resul += ('<td>' + coificiente + '%' + '</td>')
-    tbl_resul += ('</tr></table>')
 
-    //document.getElementById("outResul").innerHTML = tbl_resul; //atribui no div
     colunas(vetorLimpo, grafico2)
 
     document.getElementById("moda").innerHTML = moda;
@@ -248,6 +240,6 @@ function total(vet100, vetorLimpo) {
     document.getElementById("desvio").innerHTML = desvioPadrao;
     document.getElementById("coificiente").innerHTML = coificiente;
 
-    //return moda, media, mediana, desvioPadrao, coificiente;
 
+    return vetor
 }
