@@ -1,189 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-  <title>Easy Statistics</title>
-
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-
-  <!-- GRAFICO -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/export-data.js"></script>
-  <script src="../script/importCorrelacao.js"></script>
-  <script src="../script/graficoDispercao.js"></script>
-  <script src="../script/correlacaoEregressao.js"></script>
-
-  <script src="../script/highcharts-regression.js"></script>
+//Variaveis
+var fracaForte = ''
+var Ydependente = []
+var Ydependente = []
+var vety = ''
+var vetx = ''
+vetx = sessionStorage.getItem('vet100x')
+vety = sessionStorage.getItem('vet200')
+Ydependente = vety.split(',').map(Number)
+Xindependente = vetx.split(',').map(Number)
+//Xindependente = parseFloat(sessionStorage.getItem('vet100x'))
+console.log(vety)
+console.log(vetx)
+//Função somatoria
+function Somatoria(vet) {
+    let soma = 0;
+    for (let i = 0; i < vet.length; i++) {
+        soma += vet[i];
+    };
+    return soma
+}
 
 
-  <style>
-    .tabela {
-      height: 1000px;
+//Função somatória de X x Y
+function SomatoriaXeY(vet, vet2) {
+    let soma = 0;
+    for (let i = 0; i < vet.length; i++) {
+        soma = (vet[i] * vet2[i]) + soma;
+    };
+    return soma
+}
+
+
+//Função Somatoria do quadrado da variaveis
+function SomatoriaQuadrado(vet) {
+    let soma = 0;
+    for (let i = 0; i < vet.length; i++) {
+        soma = Math.pow(vet[i], 2) + soma;
+    };
+    return soma
+
+}
+
+//Função para achar o coeficiente da Correlação
+function Correlacao() {
+    //Variavel Coeficiente
+    let r = 0;
+
+    let dividendo = ((Xindependente.length) * SomatoriaXeY(Xindependente, Ydependente) - (Somatoria(Xindependente) * Somatoria(Ydependente)))
+    let divisor = ((Xindependente.length) * SomatoriaQuadrado(Xindependente) - (Math.pow(Somatoria(Xindependente), 2))) * ((Xindependente.length) * SomatoriaQuadrado(Ydependente) - (Math.pow(Somatoria(Ydependente), 2)))
+    r = parseFloat((dividendo / Math.sqrt(divisor)).toFixed(2))
+    let porcent = r * 100
+
+    if (r > 0 && r < 0.3) {
+        fracaForte = 'Correlação inexistente ou fraca'
+    } else if (r >= 0.3 && r < 0.6) {
+        fracaForte = 'Correlação fraca ou média'
+    } else if (r <= 0.6 && r <= 1) {
+        fracaForte = 'Correlação média a forte'
     }
-  </style>
+    document.getElementById('Linha').innerHTML = fracaForte
+    console.log(fracaForte)
+    console.log('Porcentagem da relação ' + porcent + '%')
+    return r
+}
 
+let b = 0
+let a = 0
+//Função da regreção
+function regressao(x) {
+    let dividendo = ((Xindependente.length) * SomatoriaXeY(Xindependente, Ydependente) - (Somatoria(Xindependente) * Somatoria(Ydependente)))
+    let divisor = ((Xindependente.length) * SomatoriaQuadrado(Xindependente) - (Math.pow(Somatoria(Xindependente), 2)))
+    a = parseFloat((dividendo / divisor))
+    let Ymedia = Somatoria(Ydependente) / Ydependente.length
+    let Xmedia = Somatoria(Xindependente) / Xindependente.length
 
-  <script>
+    b = Ymedia - (a * Xmedia)
 
+    let ydemanda = parseFloat((a * x + b).toFixed(2))
+    let formula
+    formula = 'Y=' + a.toFixed(2) + 'x + ' + b.toFixed(2);
+    document.getElementById('Formula').innerHTML = formula
+    console.log(Ymedia)
+    console.log(Xmedia)
+    return ydemanda
+}
 
+// Função calculo da demanda
+function demanda(x) {
 
-    //('A demanda será de ' + demanda(X))
+    // valor de Y
+    let demanda = ((a * x) + b).toFixed(2)
+    Xindependente.push(x)
+    Ydependente.push(demanda)
 
-    //('<br>');vet(Xindependente, Ydependente)
+    vet(Xindependente, Ydependente)
+    return demanda
+}
 
-//('<br>');vet(Xindependente, Ydependente)
-    var Y
-    var X
+//preço em relação a demanda
+function PrecoDemanda(y) {
+    // valor de X
+    let pre = parseFloat((b - y) / (-1 * a)).toFixed(2)
+    Xindependente.push(pre)
+    Ydependente.push(y)
+    vet(Xindependente, Ydependente)
+    return pre
 
-    function formulaReta() {
+}
 
-      let recebeX
-    
-      let saida
-      console.log('demanda' + regressao(100))
-      console.log('r: ' + Correlacao())
-      recebeX = parseFloat(document.getElementById('XeY').value)
+//formula M
+//(N * SomatoriaXeY) - (somatoriax * somatoriay) / ((N * xquadrado) - (Math.pow(somatoriax)))
 
-      let opçoesCombo = document.getElementById("combo").value
-      switch (opçoesCombo) {
-        case "X":
-          X = recebeX
-          saida = ('Y vai ser igual: ' + demanda(X))
-          //saida da resposta
-          document.getElementById("saidaFormula").innerHTML = saida
-          //zera x
-          break;
-        case "Y":
-          Y = recebeX
-          PrecoDemanda(Y)
-          saida = ('X vai ser igual: ' + PrecoDemanda(Y))
-          //saida da resposta
-          document.getElementById("saidaFormula").innerHTML = saida
-          //zera x
-          break;
-
-        default:
-      }
-      return X, Y
-    }
-//('O preço será de ' + PrecoDemanda(Y) + ' em relação a demanda')
-    //  outroGrafico()
-  </script>
-</head>
-
-<body>
-  <!-- Navegador da página -->
-  <nav class="navegador" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="../index.html" class="brand-logo">Easy Statistics</a>
-
-    </div>
-  </nav>
-
-  <!-- Paginação -->
-  <nav>
-    <div class="nav-wrapper green accent-3 ">
-      <div class="col s12 container">
-        <a href="../index.html" class="breadcrumb">Início</a>
-        <a href="inserir-dados-correlacao.html" class="breadcrumb">Opções de entrada</a>
-        <!-- <a href="" class="breadcrumb">Entrada de dados</a>-->
-        <a class="breadcrumb">Resultados</a>
-
-      </div>
-    </div>
-  </nav>
-
-  <!-- GRID -->
-  <div class="row">
-    <br>
-    <!-- Campos X e Y -->
-    <div class="col s12 m4 l3">
-             <form action="input" id="form" onchange="formulaReta()">
-
-                <!--div da formula-->
-                <div id='Formula'></div>
-               <br>
-                <label for="">Digite um valor para:</label>
-                <select class="col s12 m4 l2" name="XeY" id="combo">
-                    <option value="X">X</option>
-                    <option value="Y">Y</option>
-                </select>
-                <input type="text" id="XeY">
-               <br>
-                <div id="saidaFormula"></div>
-               <br>
-               <div id="Linha"></div>
-            </form>
-    </div>
-
-    <!-- Tabela de correlação -->
-    <div class="col s12 m8 l9" style="border:1px solid #29b6f6; height: 500px;">
-      <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
-
-  <div class="container center">
-
-
-
-    <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
-
-
-  </div>
-  </div>
-  </div>
-  <!-- Rodapé -->
-  <footer class="page-footer green accent-3">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Sobre</h5>
-          <p class="grey-text text-lighten-4">Nós somos um time de estudantes universitários inovando a
-            maneira de
-            computar dados estatísticos, visando praticidade e comodidade ao usuário.</p>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-        Coprodução Equipe de Estatística
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-
-  <script src="../js/materialize.js"></script>
-  <script src="../js/init.js"></script>
-
-
-
-
-
-  <script>
-    $(document).ready(function () {
-      $('.sidenav').sidenav();
-    });
-
-    $(document).ready(function () {
-      $('.tabs').tabs();
-    });
-
-    // Ativa os botões DROPDOWN
-    $('.dropdown-trigger').dropdown();
-    $('.dropdown-trigger1').dropdown();
-    $('.dropdown-trigger2').dropdown();
-
-    // Ativa o select
-    $(document).ready(function () {
-      $('select').formSelect();
-    });
-  </script>
-
-</body>
-
-</html>
+//formuyla b
+//(xquadrado * somatoriay) - (somatoriax * SomatoriaXeY) / ((N * xquadrado) - (Math.pow(somatoriax)))
